@@ -5,7 +5,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#080810">
+
 <title>RK MEDIA MOVIE LINK</title>
+
+<!-- FAVICON -->
+<link rel="icon" type="image/jpeg"
+href="https://i.ibb.co/S4qMKRXw/58d90f6d7b162a40f227bfa93dbce145.jpg">
 
 <style>
 * {
@@ -26,63 +31,143 @@ a {
     text-decoration: none;
 }
 
-/* TOP INSTAGRAM SECTION */
+/* INSTAGRAM HEADER */
+
 .top-bar {
-    text-align: center;
-    padding: 15px 10px;
-    background: #11111c;
-    border-bottom: 1px solid #29293b;
+    width: 94%;
+    max-width: 1100px;
+    margin: 25px auto 0;
+    padding: 18px 22px;
+    background: linear-gradient(120deg, #171044, #21145c);
+    border: 1px solid #8b65ff;
+    border-radius: 22px;
+    box-shadow: 0 0 10px #874cff, 0 0 25px #743cff88;
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
-.top-bar p {
-    font-size: 12px;
-    color: #aaa;
-    margin-bottom: 9px;
+.profile-logo {
+    width: 105px;
+    height: 105px;
+    min-width: 105px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ff55c8;
+    box-shadow: 0 0 10px #ff55c8, 0 0 22px #a855ff;
+}
+
+.social-content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.social-content p {
+    color: white;
+    font-size: 19px;
+    font-weight: 900;
     letter-spacing: 1px;
 }
 
 .social-links {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 22px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 9px;
 }
 
 .social-links a {
-    color: #ff55c8;
-    font-size: 14px;
+    color: #fff;
+    font-size: 17px;
     font-weight: bold;
+    text-shadow: 0 0 9px #c58cff;
+    transition: .3s;
 }
 
 .social-links a:hover {
-    text-shadow: 0 0 12px #ff55c8;
+    color: #ff8cfa;
+    text-shadow: 0 0 15px #ff55c8;
 }
 
-/* LOGO */
-.logo-section {
-    text-align: center;
-    padding: 30px 15px 25px;
+/* WEBSITE SAFETY WARNING */
+
+.warning-section {
+    width: 92%;
+    max-width: 1000px;
+    margin: 35px auto 30px;
+    padding: 24px;
+    background: linear-gradient(135deg, #24150d, #1b101c);
+    border: 1px solid #ff9d32;
+    border-radius: 16px;
+    box-shadow:
+        0 0 10px #ff8c3255,
+        0 0 22px #ff8c3222;
 }
 
-.logo-section img {
-    width: 260px;
-    max-width: 80%;
-    height: auto;
-    display: block;
-    margin: auto;
-    object-fit: contain;
-    filter: drop-shadow(0 0 10px #ff35b5);
+.warning-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 17px;
 }
 
-.logo-fallback {
-    font-size: clamp(23px, 5vw, 34px);
-    font-weight: 900;
-    letter-spacing: 2px;
+.warning-icon {
+    font-size: 30px;
+}
+
+.warning-heading h2 {
+    color: #ffb44d;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.warning-section p {
+    color: #ddd;
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 13px;
+}
+
+.warning-section p:last-child {
+    margin-bottom: 0;
+}
+
+.warning-section strong {
+    color: #ffbd69;
+}
+
+.brave-note {
+    margin-top: 17px;
+    padding: 15px;
+    background: #17251d;
+    border: 1px solid #37c979;
+    border-radius: 10px;
+}
+
+.brave-note strong {
+    color: #69f0a2;
+}
+
+.brave-link {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 10px 18px;
+    background: #27a957;
     color: white;
-    text-shadow: 0 0 12px #ff35b5;
+    border-radius: 7px;
+    font-weight: bold;
+    font-size: 13px;
+    transition: .3s;
+}
+
+.brave-link:hover {
+    background: #38cf70;
+    box-shadow: 0 0 13px #27d66a;
 }
 
 /* MAIN CONTAINER */
+
 .container {
     width: 92%;
     max-width: 1000px;
@@ -96,9 +181,10 @@ a {
     margin: 0 0 22px;
 }
 
-/* REAL-TIME SEARCH */
+/* SEARCH */
+
 .search-section {
-    max-width: 650px;
+    max-width: 850px;
     margin: 0 auto 28px;
 }
 
@@ -106,8 +192,8 @@ a {
     width: 100%;
     padding: 15px 18px;
     background: #151522;
-    border: 1px solid #39394c;
-    border-radius: 12px;
+    border: 1px solid #8b65ff;
+    border-radius: 15px;
     color: white;
     font-size: 15px;
     outline: none;
@@ -116,11 +202,11 @@ a {
 
 .search-box:focus {
     border-color: #ff55c8;
-    box-shadow: 0 0 12px #ff55c855;
+    box-shadow: 0 0 15px #ff55c855;
 }
 
 .search-box::placeholder {
-    color: #85859a;
+    color: #aaa;
 }
 
 .search-status {
@@ -132,6 +218,7 @@ a {
 }
 
 /* CATEGORY FOLDERS */
+
 .category {
     margin-bottom: 22px;
     border-radius: 15px;
@@ -173,6 +260,7 @@ a {
 }
 
 /* MOVIE NEON */
+
 .movie .category-button {
     border-color: #ff5722;
     color: #ff784e;
@@ -191,12 +279,11 @@ a {
 }
 
 .movie.open {
-    box-shadow:
-        0 0 8px #ff5722,
-        0 0 20px #ff572277;
+    box-shadow: 0 0 8px #ff5722, 0 0 20px #ff572277;
 }
 
 /* ANIME NEON */
+
 .anime .category-button {
     border-color: #c84cff;
     color: #d77bff;
@@ -215,17 +302,17 @@ a {
 }
 
 .anime.open {
-    box-shadow:
-        0 0 8px #d64dff,
-        0 0 20px #d64dff77;
+    box-shadow: 0 0 8px #d64dff, 0 0 20px #d64dff77;
 }
 
-/* ARROW ROTATION */
+/* ARROW */
+
 .category.open .arrow {
     transform: rotate(180deg);
 }
 
 /* FOLDER CONTENT */
+
 .category-content {
     display: none;
     padding: 17px;
@@ -238,7 +325,11 @@ a {
     display: block;
 }
 
+/* WEBSITE LINKS */
+
 .link-item {
+    --link-hue: 200;
+
     display: block;
     padding: 15px;
     margin-bottom: 11px;
@@ -246,11 +337,23 @@ a {
     background: #1b1b2a;
     color: white;
     font-size: 15px;
-    transition: all .25s ease;
+    overflow-wrap: anywhere;
+    border: 1px solid transparent;
+
+    transition:
+        color .3s ease,
+        background .3s ease,
+        box-shadow .3s ease,
+        border-color .3s ease,
+        transform .3s ease;
 }
 
 .link-item:last-child {
     margin-bottom: 0;
+}
+
+.link-item[hidden] {
+    display: none !important;
 }
 
 .movie .link-item:hover {
@@ -265,7 +368,53 @@ a {
     box-shadow: 0 0 10px #c84cff55;
 }
 
+/* UNIQUE CLICK GLOW */
+
+.category .link-item.selected-link,
+.category .link-item.selected-link:hover,
+.category .link-item.selected-link:focus {
+    color: hsl(var(--link-hue), 100%, 90%) !important;
+
+    background: hsl(var(--link-hue), 65%, 16%) !important;
+
+    border: 1px solid
+        hsl(var(--link-hue), 100%, 65%) !important;
+
+    box-shadow:
+        0 0 8px hsl(var(--link-hue), 100%, 60%),
+        0 0 18px hsl(var(--link-hue), 100%, 55%),
+        0 0 35px hsl(var(--link-hue), 100%, 45%),
+        inset 0 0 12px hsl(var(--link-hue), 100%, 35%) !important;
+
+    text-shadow:
+        0 0 10px hsl(var(--link-hue), 100%, 80%) !important;
+
+    animation: uniqueGlow .8s ease-in-out;
+}
+
+@keyframes uniqueGlow {
+    0% {
+        transform: scale(.97);
+        filter: brightness(1.5);
+    }
+
+    50% {
+        transform: scale(1.025);
+        filter: brightness(1.7);
+    }
+
+    100% {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+}
+
+.link-item:active {
+    transform: scale(.98);
+}
+
 /* MUSIC AND FEEDBACK */
+
 .side-features {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -310,6 +459,7 @@ a {
 }
 
 /* FORMS */
+
 input,
 textarea,
 select {
@@ -363,7 +513,8 @@ textarea {
     cursor: not-allowed;
 }
 
-/* FORM CONFIRMATION */
+/* FORM STATUS */
+
 .form-status {
     display: none;
     padding: 12px;
@@ -387,7 +538,8 @@ textarea {
     border: 1px solid #ff5555;
 }
 
-/* WEBSITE SUGGESTION */
+/* SUGGEST WEBSITE */
+
 .suggest-section {
     margin: 45px 0;
     padding: 30px 20px;
@@ -425,6 +577,7 @@ textarea {
 }
 
 /* FOOTER */
+
 footer {
     background: #11111c;
     padding: 23px 10px;
@@ -438,7 +591,9 @@ footer span {
 }
 
 /* MOBILE RESPONSIVE */
+
 @media (max-width: 650px) {
+
     .side-features {
         grid-template-columns: 1fr;
     }
@@ -447,8 +602,52 @@ footer span {
         font-size: 19px;
     }
 
-    .logo-section {
-        padding-top: 25px;
+    .top-bar {
+        padding: 15px;
+        gap: 14px;
+    }
+
+    .profile-logo {
+        width: 82px;
+        height: 82px;
+        min-width: 82px;
+    }
+
+    .social-content p {
+        font-size: 15px;
+    }
+
+    .social-links a {
+        font-size: 14px;
+    }
+
+    .warning-section {
+        padding: 19px;
+    }
+
+    .warning-heading h2 {
+        font-size: 18px;
+    }
+
+    .warning-section p {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 350px) {
+
+    .profile-logo {
+        width: 68px;
+        height: 68px;
+        min-width: 68px;
+    }
+
+    .social-content p {
+        font-size: 13px;
+    }
+
+    .social-links a {
+        font-size: 12px;
     }
 }
 </style>
@@ -456,38 +655,97 @@ footer span {
 
 <body>
 
-<!-- INSTAGRAM IDS -->
+<!-- INSTAGRAM HEADER -->
+
 <div class="top-bar">
-    <p>WEBSITE CREATED BY</p>
 
-    <div class="social-links">
-        <a href="https://instagram.com/rithwik_sharon_"
-           target="_blank" rel="noopener noreferrer">
-           @rithwik_sharon_
-        </a>
-
-        <a href="https://instagram.com/rk___efxr"
-           target="_blank" rel="noopener noreferrer">
-           @rk___efxr
-        </a>
-    </div>
-</div>
-
-<!-- LOGO -->
-<header class="logo-section">
     <img
-        id="siteLogo"
+        class="profile-logo"
         src="https://i.ibb.co/S4qMKRXw/58d90f6d7b162a40f227bfa93dbce145.jpg"
-        alt="RK MEDIA MOVIE LINK Logo"
-        onerror="this.style.display='none';document.getElementById('logoFallback').style.display='block';"
+        alt="RK MEDIA Logo"
     >
 
-    <div id="logoFallback"
-         class="logo-fallback"
-         style="display:none;">
-        RK MEDIA MOVIE LINK
+    <div class="social-content">
+
+        <p>WEBSITE CREATED BY</p>
+
+        <div class="social-links">
+
+            <a href="https://instagram.com/rithwik_sharon_"
+               target="_blank"
+               rel="noopener noreferrer">
+                @rithwik_sharon_ ↗
+            </a>
+
+            <a href="https://instagram.com/rk___efxr"
+               target="_blank"
+               rel="noopener noreferrer">
+                @rk___efxr ↗
+            </a>
+
+        </div>
     </div>
-</header>
+
+</div>
+
+<!-- WEBSITE SAFETY WARNING -->
+
+<section class="warning-section">
+
+    <div class="warning-heading">
+
+        <span class="warning-icon">⚠️</span>
+
+        <h2>IMPORTANT SAFETY WARNING</h2>
+
+    </div>
+
+    <p>
+        Some links available on this website may lead to
+        third-party platforms that are banned, restricted,
+        or illegal in certain countries. Please check your
+        local laws before accessing any external website.
+    </p>
+
+    <p>
+        While some content may be safe, users may encounter
+        <strong>intrusive advertisements, inappropriate pop-ups,
+        redirects, or links to mature video websites.</strong>
+        Be careful when browsing and avoid clicking suspicious
+        advertisements or downloading unknown files.
+    </p>
+
+    <div class="brave-note">
+
+        <p>
+            <strong>🛡️ Recommended Browser: Brave</strong>
+        </p>
+
+        <p>
+            We strongly recommend using the
+            <strong>Brave Browser</strong> with its built-in
+            Shields and ad-blocking features to help reduce
+            intrusive advertisements and unwanted trackers
+            while browsing.
+        </p>
+
+        <p>
+            Please remember that no browser or ad blocker
+            can guarantee complete protection. Never enter
+            personal information on suspicious websites or
+            download untrusted files.
+        </p>
+
+        <a class="brave-link"
+           href="https://brave.com/"
+           target="_blank"
+           rel="noopener noreferrer">
+            Visit Brave Website ↗
+        </a>
+
+    </div>
+
+</section>
 
 <main class="container">
 
@@ -495,8 +753,10 @@ footer span {
         Explore Movie & Anime Websites
     </p>
 
-    <!-- REAL-TIME SEARCH -->
+    <!-- SEARCH -->
+
     <section class="search-section">
+
         <input
             type="search"
             id="websiteSearch"
@@ -510,9 +770,11 @@ footer span {
            class="search-status"
            aria-live="polite">
         </p>
+
     </section>
 
     <!-- MOVIE FOLDER -->
+
     <section class="category movie" id="movieCategory">
 
         <button
@@ -523,24 +785,14 @@ footer span {
 
             <span>🎬 MOVIE</span>
             <span class="arrow">▼</span>
+
         </button>
 
         <div class="category-content">
 
-            <!-- EXISTING MOVIE LINKS -->
-            <a class="link-item"
-               href="https://www.movy.sx/"
-               target="_blank" rel="noopener noreferrer">
-                https://www.movy.sx/
-            </a>
+            <a class="link-item" href="https://www.movy.sx/" target="_blank" rel="noopener noreferrer">https://www.movy.sx/</a>
 
-            <a class="link-item"
-               href="https://cinejoy.pk/"
-               target="_blank" rel="noopener noreferrer">
-                https://cinejoy.pk/
-            </a>
-
-            <!-- NEW MOVIE LINKS -->
+            <a class="link-item" href="https://cinejoy.pk/" target="_blank" rel="noopener noreferrer">https://cinejoy.pk/</a>
 
             <a class="link-item" href="https://popcornmovies.st/" target="_blank" rel="noopener noreferrer">https://popcornmovies.st/</a>
 
@@ -604,6 +856,7 @@ footer span {
     </section>
 
     <!-- ANIME FOLDER -->
+
     <section class="category anime" id="animeCategory">
 
         <button
@@ -614,13 +867,15 @@ footer span {
 
             <span>🎌 ANIME</span>
             <span class="arrow">▼</span>
+
         </button>
 
         <div class="category-content">
 
             <a class="link-item"
                href="https://animesalt.cx/"
-               target="_blank" rel="noopener noreferrer">
+               target="_blank"
+               rel="noopener noreferrer">
                 https://animesalt.cx/
             </a>
 
@@ -628,10 +883,11 @@ footer span {
     </section>
 
     <!-- MUSIC AND FEEDBACK -->
+
     <section class="side-features">
 
-        <!-- MUSIC PLAYER -->
         <div class="small-card music-card">
+
             <h3>🎵 Music Player</h3>
 
             <p id="musicStatus">
@@ -639,19 +895,24 @@ footer span {
             </p>
 
             <div class="music-controls">
+
                 <button
                     id="musicButton"
                     type="button"
                     onclick="toggleMusic()">
                     ▶ Play
                 </button>
+
             </div>
 
             <audio id="backgroundMusic" loop></audio>
+
         </div>
 
         <!-- FEEDBACK FORM -->
+
         <div class="small-card feedback-card">
+
             <h3>💬 Feedback</h3>
 
             <form
@@ -668,6 +929,7 @@ footer span {
                        value="RK MEDIA - New Feedback">
 
                 <select name="message_type" required>
+
                     <option value="" disabled selected>
                         Select Message Type
                     </option>
@@ -676,6 +938,7 @@ footer span {
                     <option value="Website Suggestion">Website Suggestion</option>
                     <option value="General Feedback">General Feedback</option>
                     <option value="Other Message">Other Message</option>
+
                 </select>
 
                 <textarea
@@ -690,11 +953,15 @@ footer span {
                 <div class="form-status"
                      role="status"
                      aria-live="polite"></div>
+
             </form>
+
         </div>
+
     </section>
 
     <!-- SUGGEST A WEBSITE -->
+
     <section class="suggest-section">
 
         <h2>🌐 Suggest a Website</h2>
@@ -728,6 +995,7 @@ footer span {
                    required>
 
             <select name="category" required>
+
                 <option value="" disabled selected>
                     Select Category
                 </option>
@@ -735,11 +1003,13 @@ footer span {
                 <option value="Movie">Movie</option>
                 <option value="Anime">Anime</option>
                 <option value="Other">Other</option>
+
             </select>
 
-            <textarea name="suggestion"
-                      placeholder="Tell us about this website..."
-                      required></textarea>
+            <textarea
+                name="suggestion"
+                placeholder="Tell us about this website..."
+                required></textarea>
 
             <button class="submit-btn" type="submit">
                 Submit Website Suggestion
@@ -748,7 +1018,9 @@ footer span {
             <div class="form-status"
                  role="status"
                  aria-live="polite"></div>
+
         </form>
+
     </section>
 
 </main>
@@ -762,6 +1034,7 @@ footer span {
 <script>
 
 /* ONE FOLDER OPEN AT A TIME */
+
 function toggleCategory(categoryId, clickedButton) {
 
     const categories =
@@ -777,10 +1050,8 @@ function toggleCategory(categoryId, clickedButton) {
 
         category.classList.remove("open");
 
-        const button =
-            category.querySelector(".category-button");
-
-        button.setAttribute("aria-expanded", "false");
+        category.querySelector(".category-button")
+            .setAttribute("aria-expanded", "false");
 
     });
 
@@ -794,67 +1065,166 @@ function toggleCategory(categoryId, clickedButton) {
         );
 
     }
+
 }
 
 /* REAL-TIME SEARCH */
+
 const searchInput =
     document.getElementById("websiteSearch");
 
 const searchStatus =
     document.getElementById("searchStatus");
 
-const searchableCategories =
+const categories =
     document.querySelectorAll(".category");
 
 searchInput.addEventListener("input", function () {
 
-    const query =
-        this.value.trim().toLowerCase();
+    const query = this.value.trim().toLowerCase();
 
-    let visibleCount = 0;
+    let matchedCategories = [];
 
-    searchableCategories.forEach(category => {
+    categories.forEach(category => {
 
-        const categoryText =
-            category.textContent.toLowerCase();
+        const button =
+            category.querySelector(".category-button");
 
-        const matches =
-            categoryText.includes(query);
+        const categoryName =
+            button.textContent.toLowerCase();
 
-        category.hidden = !matches;
+        const links =
+            category.querySelectorAll(".link-item");
 
-        if (matches) {
-            visibleCount++;
-        } else {
-            category.classList.remove("open");
+        const categoryNameMatches =
+            query !== "" && categoryName.includes(query);
 
-            const button =
-                category.querySelector(".category-button");
+        let matches = 0;
 
-            button.setAttribute("aria-expanded", "false");
+        links.forEach(link => {
+
+            const linkText =
+                (link.textContent + " " + link.href).toLowerCase();
+
+            const linkMatches =
+                query === "" ||
+                categoryNameMatches ||
+                linkText.includes(query);
+
+            link.hidden = !linkMatches;
+
+            if (linkMatches && query !== "") {
+                matches++;
+            }
+
+        });
+
+        const categoryMatches =
+            query === "" || matches > 0;
+
+        category.hidden = !categoryMatches;
+
+        if (categoryMatches && query !== "") {
+            matchedCategories.push({
+                category: category,
+                count: matches
+            });
         }
 
     });
 
     if (query === "") {
 
-        searchStatus.textContent = "";
+        categories.forEach(category => {
 
-    } else if (visibleCount === 0) {
+            category.hidden = false;
+            category.classList.remove("open");
+
+            category.querySelector(".category-button")
+                .setAttribute("aria-expanded", "false");
+
+            category.querySelectorAll(".link-item")
+                .forEach(link => link.hidden = false);
+
+        });
+
+        searchStatus.textContent = "";
+        return;
+
+    }
+
+    /* OPEN ONLY THE CORRECT FOLDER */
+
+    categories.forEach(category => {
+
+        category.classList.remove("open");
+
+        category.querySelector(".category-button")
+            .setAttribute("aria-expanded", "false");
+
+    });
+
+    if (matchedCategories.length === 1) {
+
+        const result = matchedCategories[0];
+
+        result.category.classList.add("open");
+
+        result.category.querySelector(".category-button")
+            .setAttribute("aria-expanded", "true");
 
         searchStatus.textContent =
-            "No Movie or Anime websites found.";
+            result.count + " matching website(s) found.";
+
+    } else if (matchedCategories.length > 1) {
+
+        searchStatus.textContent =
+            "Matching websites found in multiple categories.";
 
     } else {
 
         searchStatus.textContent =
-            visibleCount + " matching category found.";
+            "No Movie or Anime websites found.";
 
     }
 
 });
 
+/* UNIQUE NEON COLOR FOR EVERY LINK */
+
+const allWebsiteLinks =
+    document.querySelectorAll(".link-item");
+
+allWebsiteLinks.forEach((link, index) => {
+
+    const hue = (index * 137.508 + 5) % 360;
+
+    link.style.setProperty(
+        "--link-hue",
+        hue.toFixed(2)
+    );
+
+});
+
+/* CLICK GLOW */
+
+document.addEventListener("click", function (event) {
+
+    const clickedLink =
+        event.target.closest(".link-item");
+
+    if (!clickedLink) return;
+
+    allWebsiteLinks.forEach(link => {
+        link.classList.remove("selected-link");
+    });
+
+    clickedLink.classList.add("selected-link");
+
+});
+
 /* AJAX FORM SUBMISSION - FORMSPREE */
+
 const ajaxForms =
     document.querySelectorAll(".ajax-form");
 
@@ -913,12 +1283,14 @@ ajaxForms.forEach(form => {
                     const result = await response.json();
 
                     if (result.errors && result.errors.length) {
+
                         errorMessage =
                             result.errors.map(error => error.message).join(" ");
+
                     }
 
                 } catch (jsonError) {
-                    // Keep the default error message.
+                    // Default error message
                 }
 
                 statusBox.className =
@@ -949,6 +1321,7 @@ ajaxForms.forEach(form => {
 });
 
 /* OPTIONAL MUSIC PLAYER */
+
 const MUSIC_FILE = "";
 
 const music =

@@ -1,0 +1,720 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>RK MEDIA MOVIE LINK</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #080810;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* TOP INSTAGRAM SECTION */
+
+.top-bar {
+    text-align: center;
+    padding: 15px 10px;
+    background: #11111c;
+    border-bottom: 1px solid #29293b;
+}
+
+.top-bar p {
+    font-size: 12px;
+    color: #aaa;
+    margin-bottom: 9px;
+    letter-spacing: 1px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 22px;
+}
+
+.social-links a {
+    color: #ff55c8;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.social-links a:hover {
+    text-shadow: 0 0 12px #ff55c8;
+}
+
+/* LOGO */
+
+.logo-section {
+    text-align: center;
+    padding: 30px 15px 25px;
+}
+
+.logo-section img {
+    width: 260px;
+    max-width: 80%;
+    height: auto;
+    display: block;
+    margin: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 10px #ff35b5);
+}
+
+.logo-fallback {
+    font-size: clamp(23px, 5vw, 34px);
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: white;
+    text-shadow: 0 0 12px #ff35b5;
+}
+
+/* MAIN CONTAINER */
+
+.container {
+    width: 92%;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.subtitle {
+    text-align: center;
+    color: #aaa;
+    font-size: 14px;
+    margin: 0 0 28px;
+}
+
+/* CATEGORY FOLDERS */
+
+.category {
+    margin-bottom: 22px;
+    border-radius: 15px;
+    background: #11111c;
+    overflow: hidden;
+    transition: box-shadow .3s ease;
+}
+
+.category-button {
+    width: 100%;
+    min-height: 70px;
+    padding: 20px;
+    background: #11111c;
+    border: 1px solid transparent;
+    border-radius: 15px;
+    color: white;
+    font-size: 21px;
+    font-weight: bold;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: all .3s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.category-button:active {
+    transform: scale(.985);
+}
+
+.arrow {
+    font-size: 17px;
+    transition: transform .3s ease;
+}
+
+/* MOVIE NEON */
+
+.movie .category-button {
+    border-color: #ff5722;
+    color: #ff784e;
+}
+
+.movie .category-button:hover,
+.movie.open .category-button,
+.movie .category-button:focus-visible {
+    background: #25130f;
+    border-color: #ff5722;
+    box-shadow:
+        0 0 7px #ff5722,
+        0 0 16px #ff5722,
+        inset 0 0 10px #ff572233;
+    text-shadow: 0 0 10px #ff5722;
+}
+
+.movie.open {
+    box-shadow:
+        0 0 8px #ff5722,
+        0 0 20px #ff572277;
+}
+
+/* ANIME NEON */
+
+.anime .category-button {
+    border-color: #c84cff;
+    color: #d77bff;
+}
+
+.anime .category-button:hover,
+.anime.open .category-button,
+.anime .category-button:focus-visible {
+    background: #20102d;
+    border-color: #d64dff;
+    box-shadow:
+        0 0 7px #d64dff,
+        0 0 16px #d64dff,
+        inset 0 0 10px #d64dff33;
+    text-shadow: 0 0 10px #d64dff;
+}
+
+.anime.open {
+    box-shadow:
+        0 0 8px #d64dff,
+        0 0 20px #d64dff77;
+}
+
+/* ARROW ROTATION */
+
+.category.open .arrow {
+    transform: rotate(180deg);
+}
+
+/* FOLDER CONTENT */
+
+.category-content {
+    display: none;
+    padding: 17px;
+    background: #10101a;
+    border: 1px solid #29293b;
+    border-top: none;
+}
+
+.category.open .category-content {
+    display: block;
+}
+
+.link-item {
+    display: block;
+    padding: 15px;
+    margin-bottom: 11px;
+    border-radius: 9px;
+    background: #1b1b2a;
+    color: white;
+    font-size: 15px;
+    transition: all .25s ease;
+}
+
+.link-item:last-child {
+    margin-bottom: 0;
+}
+
+.movie .link-item:hover {
+    color: #ff895c;
+    background: #392016;
+    box-shadow: 0 0 10px #ff572255;
+}
+
+.anime .link-item:hover {
+    color: #e1a2ff;
+    background: #2d1740;
+    box-shadow: 0 0 10px #c84cff55;
+}
+
+/* MUSIC AND FEEDBACK */
+
+.side-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin: 35px 0;
+}
+
+.small-card {
+    background: #11111c;
+    border: 1px solid #29293b;
+    border-radius: 13px;
+    padding: 18px;
+}
+
+.small-card h3 {
+    margin-bottom: 13px;
+    font-size: 17px;
+}
+
+.music-card {
+    border-color: #00c9a7;
+}
+
+.feedback-card {
+    border-color: #ff55c8;
+}
+
+.music-card p {
+    color: #aaa;
+    font-size: 12px;
+    margin-bottom: 12px;
+}
+
+.music-controls button {
+    background: #00c9a7;
+    color: #071410;
+    border: none;
+    padding: 10px 19px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* FORMS */
+
+input,
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 11px;
+    background: #1c1c2b;
+    border: 1px solid #39394c;
+    border-radius: 7px;
+    color: white;
+    font-family: inherit;
+    outline: none;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #ff55c8;
+    box-shadow: 0 0 8px #ff55c855;
+}
+
+textarea {
+    min-height: 85px;
+    resize: vertical;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 7px;
+    background: #ff3ca6;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    box-shadow: 0 0 12px #ff3ca6;
+}
+
+/* WEBSITE SUGGESTION */
+
+.suggest-section {
+    margin: 45px 0;
+    padding: 30px 20px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #19102a, #25102a);
+    border: 1px solid #b34cff;
+    box-shadow: 0 0 18px #a020f033;
+}
+
+.suggest-section h2 {
+    text-align: center;
+    color: #dc9aff;
+    font-size: 27px;
+    margin-bottom: 10px;
+}
+
+.suggest-section > p {
+    text-align: center;
+    color: #aaa;
+    font-size: 14px;
+    margin-bottom: 23px;
+}
+
+.suggest-form {
+    max-width: 600px;
+    margin: auto;
+}
+
+.suggest-form .submit-btn {
+    background: #a53bdf;
+}
+
+/* FOOTER */
+
+footer {
+    background: #11111c;
+    padding: 23px 10px;
+    text-align: center;
+    color: #888;
+    font-size: 12px;
+}
+
+footer span {
+    color: #ff55c8;
+}
+
+/* MOBILE RESPONSIVE */
+
+@media (max-width: 650px) {
+    .side-features {
+        grid-template-columns: 1fr;
+    }
+
+    .category-button {
+        font-size: 19px;
+    }
+
+    .logo-section {
+        padding-top: 25px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- INSTAGRAM IDS -->
+
+<div class="top-bar">
+    <p>WEBSITE CREATED BY</p>
+
+    <div class="social-links">
+        <a href="https://instagram.com/rithwik_sharon_"
+           target="_blank" rel="noopener">
+           @rithwik_sharon_
+        </a>
+
+        <a href="https://instagram.com/rk___efxr"
+           target="_blank" rel="noopener">
+           @rk___efxr
+        </a>
+    </div>
+</div>
+
+<!-- LOGO: ONLY ONE MAIN BRAND DISPLAY -->
+
+<header class="logo-section">
+
+    <img
+        id="siteLogo"
+        src="https://i.ibb.co/S4qMKRXw/58d90f6d7b162a40f227bfa93dbce145.jpg"
+        alt="RK MEDIA MOVIE LINK Logo"
+        onerror="this.style.display='none';document.getElementById('logoFallback').style.display='block';"
+    >
+
+    <div id="logoFallback"
+         class="logo-fallback"
+         style="display:none;">
+        RK MEDIA MOVIE LINK
+    </div>
+
+</header>
+
+<main class="container">
+
+    <p class="subtitle">
+        Explore Movie & Anime Websites
+    </p>
+
+    <!-- MOVIE FOLDER -->
+
+    <section class="category movie" id="movieCategory">
+
+        <button
+            type="button"
+            class="category-button"
+            aria-expanded="false"
+            onclick="toggleCategory('movieCategory', this)">
+
+            <span>🎬 MOVIE</span>
+            <span class="arrow">▼</span>
+
+        </button>
+
+        <div class="category-content">
+
+            <a class="link-item"
+               href="https://www.movy.sx/"
+               target="_blank" rel="noopener">
+                Movy ↗
+            </a>
+
+            <a class="link-item"
+               href="https://cinejoy.pk/"
+               target="_blank" rel="noopener">
+                Cinejoy ↗
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- ANIME FOLDER -->
+
+    <section class="category anime" id="animeCategory">
+
+        <button
+            type="button"
+            class="category-button"
+            aria-expanded="false"
+            onclick="toggleCategory('animeCategory', this)">
+
+            <span>🎌 ANIME</span>
+            <span class="arrow">▼</span>
+
+        </button>
+
+        <div class="category-content">
+
+            <a class="link-item"
+               href="https://animesalt.cx/"
+               target="_blank" rel="noopener">
+                AnimeSalt ↗
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- MUSIC AND FEEDBACK -->
+
+    <section class="side-features">
+
+        <!-- MUSIC PLAYER -->
+
+        <div class="small-card music-card">
+
+            <h3>🎵 Music Player</h3>
+
+            <p id="musicStatus">
+                Music can be added later.
+            </p>
+
+            <div class="music-controls">
+
+                <button
+                    id="musicButton"
+                    type="button"
+                    onclick="toggleMusic()">
+                    ▶ Play
+                </button>
+
+            </div>
+
+            <audio id="backgroundMusic" loop></audio>
+
+        </div>
+
+        <!-- FEEDBACK -->
+
+        <div class="small-card feedback-card">
+
+            <h3>💬 Feedback</h3>
+
+            <form action="https://formspree.io/f/mdeevero"
+                  method="POST">
+
+                <input type="hidden"
+                       name="form_type"
+                       value="Website Feedback">
+
+                <input type="hidden"
+                       name="_subject"
+                       value="RK MEDIA - New Feedback">
+
+                <input type="text"
+                       name="name"
+                       placeholder="Your Name"
+                       required>
+
+                <input type="email"
+                       name="email"
+                       placeholder="Your Email"
+                       required>
+
+                <textarea name="message"
+                          placeholder="Write your feedback..."
+                          required></textarea>
+
+                <button class="submit-btn" type="submit">
+                    Send Feedback
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+    <!-- SUGGEST A WEBSITE -->
+
+    <section class="suggest-section">
+
+        <h2>🌐 Suggest a Website</h2>
+
+        <p>
+            Know a useful Movie or Anime website?
+            Share it with us!
+        </p>
+
+        <form class="suggest-form"
+              action="https://formspree.io/f/mdeevero"
+              method="POST">
+
+            <input type="hidden"
+                   name="form_type"
+                   value="Website Suggestion">
+
+            <input type="hidden"
+                   name="_subject"
+                   value="RK MEDIA - Website Suggestion">
+
+            <input type="text"
+                   name="website_name"
+                   placeholder="Website Name"
+                   required>
+
+            <input type="url"
+                   name="website_url"
+                   placeholder="Website URL (https://...)"
+                   required>
+
+            <textarea name="suggestion"
+                      placeholder="Tell us about this website..."
+                      required></textarea>
+
+            <button class="submit-btn" type="submit">
+                Submit Website Suggestion
+            </button>
+
+        </form>
+
+    </section>
+
+</main>
+
+<footer>
+    © 2026 RK MEDIA MOVIE LINK
+    <br><br>
+    Created with ❤️ by <span>RK MEDIA</span>
+</footer>
+
+<script>
+
+/* ONE FOLDER OPEN AT A TIME */
+
+function toggleCategory(categoryId, clickedButton) {
+
+    const categories =
+        document.querySelectorAll(".category");
+
+    const selected =
+        document.getElementById(categoryId);
+
+    const wasOpen =
+        selected.classList.contains("open");
+
+    categories.forEach(category => {
+
+        category.classList.remove("open");
+
+        const button =
+            category.querySelector(".category-button");
+
+        button.setAttribute("aria-expanded", "false");
+
+    });
+
+    if (!wasOpen) {
+
+        selected.classList.add("open");
+
+        clickedButton.setAttribute(
+            "aria-expanded",
+            "true"
+        );
+
+    }
+
+}
+
+/* OPTIONAL MUSIC PLAYER */
+
+const MUSIC_FILE = "";
+
+const music =
+    document.getElementById("backgroundMusic");
+
+const musicButton =
+    document.getElementById("musicButton");
+
+const musicStatus =
+    document.getElementById("musicStatus");
+
+if (MUSIC_FILE) {
+    music.src = MUSIC_FILE;
+    musicStatus.textContent = "Music is ready.";
+}
+
+function toggleMusic() {
+
+    if (!MUSIC_FILE) {
+
+        musicStatus.textContent =
+            "No music added yet. Add an MP3 file later.";
+
+        return;
+
+    }
+
+    if (music.paused) {
+
+        music.play().then(() => {
+
+            musicButton.textContent = "❚❚ Pause";
+            musicStatus.textContent = "Now playing";
+
+        }).catch(() => {
+
+            musicStatus.textContent =
+                "Unable to play music. Check the audio file.";
+
+        });
+
+    } else {
+
+        music.pause();
+
+        musicButton.textContent = "▶ Play";
+        musicStatus.textContent = "Music paused.";
+
+    }
+
+}
+
+music.addEventListener("ended", () => {
+
+    musicButton.textContent = "▶ Play";
+
+});
+
+</script>
+
+</body>
+</html>

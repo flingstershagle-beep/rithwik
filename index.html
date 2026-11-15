@@ -160,6 +160,56 @@ footer span{color:#ff55c8}
  .social-content p{font-size:13px}
  .social-links a{font-size:12px}
 }
+
+
+/* NEW RK MEDIA QUICK FEATURES — added without replacing existing styles */
+.feature-strip{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:0 auto 24px;max-width:850px}
+.feature-card{position:relative;min-height:78px;padding:13px 15px 13px 18px;background:linear-gradient(135deg,#171729,#11111d);border:1px solid #34344c;border-radius:12px;overflow:hidden;box-shadow:0 5px 16px #0004}
+.feature-card:before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--feature-accent);box-shadow:0 0 12px var(--feature-accent)}
+.feature-top{--feature-accent:#20c997}
+.feature-theme{--feature-accent:#ff2d55}
+.feature-label{display:block;color:#aeb4c8;font-size:10px;font-weight:800;letter-spacing:1.2px;margin-bottom:7px}
+/* Compact India clock: a slim pill, updated once per minute */
+.india-clock{--clock-accent:#ffd60a;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:4px 10px;width:fit-content;max-width:calc(100% - 20px);margin:0 auto 14px;padding:7px 16px;border:1px solid #ffd60a88;border-radius:999px;background:linear-gradient(135deg,#171729,#11111d);box-shadow:0 0 10px #ffd60a22,0 4px 12px #0004;color:#fff;font-size:12px;font-weight:800;letter-spacing:.4px}
+.india-clock-time{color:var(--clock-accent);font-variant-numeric:tabular-nums;text-shadow:0 0 8px #ffd60a55}
+.india-clock-sep{color:#6f7490}
+.india-clock-date{color:#aeb4c8;font-weight:700}
+.feature-subvalue{display:block;color:#aeb4c8;font-size:11px;margin-top:3px}
+.feature-control{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:34px;padding:7px 12px;border:1px solid var(--feature-accent);border-radius:8px;background:#ffffff0b;color:#fff;font-size:12px;font-weight:800;cursor:pointer;transition:.25s}
+.feature-control:hover{background:color-mix(in srgb,var(--feature-accent) 18%,transparent);box-shadow:0 0 12px color-mix(in srgb,var(--feature-accent) 55%,transparent)}
+#backToTop{position:fixed;right:18px;bottom:88px;z-index:850;display:none;align-items:center;gap:8px;padding:12px 16px;border:1px solid #20c997;border-radius:999px;background:linear-gradient(110deg,#075d50,#087e68);color:#fff;font-size:12px;font-weight:800;box-shadow:0 0 15px #20c99766,0 6px 20px #0008;cursor:pointer;transition:.25s}
+#backToTop.visible{display:inline-flex}
+#backToTop:hover{transform:translateY(-3px);box-shadow:0 0 22px #20c99799,0 8px 22px #0009}
+/* Optional light appearance; original dark appearance remains the default */
+body.light-mode{background:#eef1f8;color:#202235}
+body.light-mode .top-bar{background:linear-gradient(120deg,#e7e2ff,#dce8ff);color:#202235}
+body.light-mode .social-content p,body.light-mode .social-links a{color:#292342;text-shadow:none}
+body.light-mode .search-box{background:#fff;color:#202235;border-color:#8b65ff}
+body.light-mode .search-box::placeholder{color:#777}
+body.light-mode .category,body.light-mode .category-button{background:#fff;color:#292342}
+body.light-mode .category-content{background:#f4f4fb;border-color:#d8d8e8}
+body.light-mode .link-item{background:#e8e9f2;color:#28283a}
+body.light-mode .subtitle{color:#555}
+body.light-mode .behind-scenes{background:linear-gradient(135deg,#e8f4fb,#f0eaff);color:#24243a}
+body.light-mode .behind-header h2{color:#25243c}
+body.light-mode .behind-header p{color:#555b70}
+body.light-mode .message-panel{background:linear-gradient(135deg,#e5f4fb,#f0eaff);box-shadow:inset 0 1px 0 #fff,0 0 15px #20c9d522}
+body.light-mode .message-content{color:#34394c}
+body.light-mode .suggest-section{background:linear-gradient(135deg,#f1e9ff,#fbeafa)}
+body.light-mode .suggest-section>p{color:#555}
+body.light-mode footer{background:#e1e3ee;color:#555}
+body.light-mode .feature-card{background:linear-gradient(135deg,#fff,#edf0fa);border-color:#d3d5e5}
+body.light-mode .feature-label,body.light-mode .feature-subvalue{color:#62677b}
+body.light-mode .india-clock{background:#fff;border-color:#d9a900;box-shadow:0 0 10px #ffd60a33,0 4px 12px #0001;color:#24243a}
+body.light-mode .india-clock-time{color:#8a6a00;text-shadow:none}
+body.light-mode .india-clock-date{color:#62677b}
+body.light-mode .feature-control{color:#24243a;background:#ffffffaa}
+body.light-mode input,body.light-mode textarea,body.light-mode select{background:#fff;color:#202235;border-color:#c7c9d8}
+body.light-mode .modal-dialog{background:linear-gradient(145deg,#fff,#ececf7);color:#202235}
+body.light-mode .modal-close{background:#e6e6f0;color:#202235}
+@media(max-width:520px){.feature-strip{gap:9px}.feature-card{padding:11px 10px 11px 14px;min-height:76px}.india-clock{font-size:11px;padding:6px 13px}.feature-control{font-size:11px;padding:7px 9px}#backToTop{right:12px;bottom:76px;padding:10px 13px}}
+@media(max-width:350px){.feature-strip{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -193,6 +243,29 @@ footer span{color:#ff55c8}
 </section>
 
 <main class="container">
+
+    <!-- INDIA STANDARD TIME (compact) -->
+    <div class="india-clock" role="group" aria-label="India Standard Time">
+        <span>🇮🇳 IST</span>
+        <time id="indiaClock">--:--</time>
+        <span class="india-clock-sep" aria-hidden="true">•</span>
+        <span class="india-clock-date" id="indiaDate">Loading date...</span>
+    </div>
+
+    <!-- NEW QUICK FEATURES -->
+    <section class="feature-strip" aria-label="RK MEDIA quick features">
+        <div class="feature-card feature-top">
+            <span class="feature-label">BACK TO TOP</span>
+            <button class="feature-control" id="backToTopInline" type="button">↑ Go to top</button>
+            <span class="feature-subvalue">Quickly return to the beginning</span>
+        </div>
+        <div class="feature-card feature-theme">
+            <span class="feature-label">DISPLAY MODE</span>
+            <button class="feature-control" id="themeToggle" type="button" aria-pressed="false">☀️ Light Mode</button>
+            <span class="feature-subvalue" id="themeStatus">Dark mode is active</span>
+        </div>
+    </section>
+
     <p class="subtitle">Explore Movie, Anime &amp; PC Games</p>
 
     <!-- SEARCH -->
@@ -339,6 +412,10 @@ footer span{color:#ff55c8}
             <div class="form-status" role="status" aria-live="polite"></div>
         </form>
     </section>
+
+<!-- Floating back-to-top button appears after scrolling -->
+<button id="backToTop" class="feature-top" type="button" aria-label="Back to top">↑ BACK TO TOP</button>
+
 </main>
 
 <footer>
@@ -557,6 +634,101 @@ async function toggleMusic() {
 music.addEventListener("pause", () => updateMusicButton(false));
 music.addEventListener("play", () => updateMusicButton(true));
 music.addEventListener("ended", () => updateMusicButton(false));
+
+
+/* NEW FEATURE 1: INDIA STANDARD TIME CLOCK — updates once per minute and pauses while the tab is hidden */
+(function initIndiaClock(){
+    const clock = document.getElementById("indiaClock");
+    const date = document.getElementById("indiaDate");
+    if (!clock || !date) return;
+    const timeFormatter = new Intl.DateTimeFormat("en-IN", {
+        timeZone: "Asia/Kolkata", hour: "numeric", minute: "2-digit", hour12: true
+    });
+    const dateFormatter = new Intl.DateTimeFormat("en-IN", {
+        timeZone: "Asia/Kolkata", weekday: "long", day: "2-digit", month: "short", year: "numeric"
+    });
+    let timerId = null;
+    function updateIndiaClock(){
+        const now = new Date();
+        clock.textContent = timeFormatter.format(now);
+        date.textContent = dateFormatter.format(now);
+    }
+    function scheduleNextUpdate(){
+        // Wake up just after the next minute boundary. IST is a whole-minute offset from UTC, so boundaries line up.
+        const msUntilNextMinute = 60000 - (Date.now() % 60000);
+        timerId = window.setTimeout(tick, msUntilNextMinute + 50);
+    }
+    function tick(){
+        updateIndiaClock();
+        scheduleNextUpdate();
+    }
+    function start(){
+        if (timerId !== null) return;
+        updateIndiaClock();
+        scheduleNextUpdate();
+    }
+    function stop(){
+        if (timerId === null) return;
+        window.clearTimeout(timerId);
+        timerId = null;
+    }
+    document.addEventListener("visibilitychange", function(){
+        if (document.hidden) stop();
+        else start();
+    });
+    if (!document.hidden) start();
+})();
+
+/* NEW FEATURE 2: BACK TO TOP BUTTONS */
+(function initBackToTop(){
+    const floatingButton = document.getElementById("backToTop");
+    const inlineButton = document.getElementById("backToTopInline");
+    function goToTop(){ window.scrollTo({top: 0, behavior: "smooth"}); }
+    if (floatingButton) floatingButton.addEventListener("click", goToTop);
+    if (inlineButton) inlineButton.addEventListener("click", goToTop);
+    function updateButton(){
+        if (floatingButton) floatingButton.classList.toggle("visible", window.scrollY > 300);
+    }
+    window.addEventListener("scroll", updateButton, {passive:true});
+    updateButton();
+})();
+
+/* NEW FEATURE 3: AFTER A PAGE REFRESH, RETURN TO THE TOP */
+(function resetScrollOnRefresh(){
+    try { history.scrollRestoration = "manual"; } catch (error) { /* Browser may not support this setting. */ }
+    function moveToTopAfterRefresh(){
+        const navigation = performance.getEntriesByType ? performance.getEntriesByType("navigation")[0] : null;
+        if (navigation && navigation.type === "reload") {
+            window.scrollTo(0, 0);
+            requestAnimationFrame(() => window.scrollTo(0, 0));
+        }
+    }
+    if (document.readyState === "complete") moveToTopAfterRefresh();
+    else window.addEventListener("load", moveToTopAfterRefresh, {once:true});
+})();
+
+/* NEW FEATURE 4: REMEMBER DARK / LIGHT MODE */
+(function initThemeToggle(){
+    const button = document.getElementById("themeToggle");
+    const status = document.getElementById("themeStatus");
+    if (!button) return;
+    let savedTheme = "dark";
+    try { savedTheme = localStorage.getItem("rkMediaTheme") || "dark"; } catch (error) { /* Storage may be unavailable. */ }
+    function applyTheme(theme){
+        const isLight = theme === "light";
+        document.body.classList.toggle("light-mode", isLight);
+        button.textContent = isLight ? "🌙 Dark Mode" : "☀️ Light Mode";
+        button.setAttribute("aria-pressed", String(isLight));
+        if (status) status.textContent = isLight ? "Light mode is active" : "Dark mode is active";
+    }
+    applyTheme(savedTheme === "light" ? "light" : "dark");
+    button.addEventListener("click", function(){
+        const nextTheme = document.body.classList.contains("light-mode") ? "dark" : "light";
+        applyTheme(nextTheme);
+        try { localStorage.setItem("rkMediaTheme", nextTheme); } catch (error) { /* Theme still works for this visit. */ }
+    });
+})();
+
 </script>
 </body>
 </html>

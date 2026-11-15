@@ -1,1028 +1,268 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#080810">
-
 <title>RK MEDIA MOVIE LINK</title>
-
-<!-- FAVICON -->
-<link rel="icon" type="image/jpeg"
-href="https://i.ibb.co/S4qMKRXw/58d90f6d7b162a40f227bfa93dbce145.jpg">
-
+<link rel="icon" type="image/jpeg" href="https://i.ibb.co/S4qMKRXw/58d90f6d7b162a40f227bfa93dbce145.jpg">
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background: #080810;
-    color: #fff;
-    font-family: Arial, sans-serif;
-    min-height: 100vh;
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
-/* INSTAGRAM HEADER */
-
-.top-bar {
-    width: 94%;
-    max-width: 1100px;
-    margin: 25px auto 0;
-    padding: 18px 22px;
-    background: linear-gradient(120deg, #171044, #21145c);
-    border: 1px solid #8b65ff;
-    border-radius: 22px;
-    box-shadow: 0 0 10px #874cff, 0 0 25px #743cff88;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.profile-logo {
-    width: 105px;
-    height: 105px;
-    min-width: 105px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #ff55c8;
-    box-shadow: 0 0 10px #ff55c8, 0 0 22px #a855ff;
-}
-
-.social-content {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.social-content p {
-    color: white;
-    font-size: 19px;
-    font-weight: 900;
-    letter-spacing: 1px;
-}
-
-.social-links {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 9px;
-}
-
-.social-links a {
-    color: #fff;
-    font-size: 17px;
-    font-weight: bold;
-    text-shadow: 0 0 9px #c58cff;
-    transition: .3s;
-}
-
-.social-links a:hover {
-    color: #ff8cfa;
-    text-shadow: 0 0 15px #ff55c8;
-}
-
-/* WEBSITE SAFETY WARNING */
-
-.warning-section {
-    width: 92%;
-    max-width: 1000px;
-    margin: 35px auto 30px;
-    padding: 24px;
-    background: linear-gradient(135deg, #24150d, #1b101c);
-    border: 1px solid #ff9d32;
-    border-radius: 16px;
-    box-shadow:
-        0 0 10px #ff8c3255,
-        0 0 22px #ff8c3222;
-}
-
-.warning-heading {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 17px;
-}
-
-.warning-icon {
-    font-size: 30px;
-}
-
-.warning-heading h2 {
-    color: #ffb44d;
-    font-size: 21px;
-    font-weight: bold;
-}
-
-.warning-section p {
-    color: #ddd;
-    font-size: 14px;
-    line-height: 1.8;
-    margin-bottom: 13px;
-}
-
-.warning-section p:last-child {
-    margin-bottom: 0;
-}
-
-.warning-section strong {
-    color: #ffbd69;
-}
-
-.brave-note {
-    margin-top: 17px;
-    padding: 15px;
-    background: #17251d;
-    border: 1px solid #37c979;
-    border-radius: 10px;
-}
-
-.brave-note strong {
-    color: #69f0a2;
-}
-
-.brave-link {
-    display: inline-block;
-    margin-top: 12px;
-    padding: 10px 18px;
-    background: #27a957;
-    color: white;
-    border-radius: 7px;
-    font-weight: bold;
-    font-size: 13px;
-    transition: .3s;
-}
-
-.brave-link:hover {
-    background: #38cf70;
-    box-shadow: 0 0 13px #27d66a;
-}
-
-/* MAIN CONTAINER */
-
-.container {
-    width: 92%;
-    max-width: 1000px;
-    margin: auto;
-}
-
-.subtitle {
-    text-align: center;
-    color: #aaa;
-    font-size: 14px;
-    margin: 0 0 22px;
-}
-
-/* SEARCH */
-
-.search-section {
-    max-width: 850px;
-    margin: 0 auto 28px;
-}
-
-.search-box {
-    width: 100%;
-    padding: 15px 18px;
-    background: #151522;
-    border: 1px solid #8b65ff;
-    border-radius: 15px;
-    color: white;
-    font-size: 15px;
-    outline: none;
-    transition: .3s;
-}
-
-.search-box:focus {
-    border-color: #ff55c8;
-    box-shadow: 0 0 15px #ff55c855;
-}
-
-.search-box::placeholder {
-    color: #aaa;
-}
-
-.search-status {
-    text-align: center;
-    color: #aaa;
-    font-size: 12px;
-    margin-top: 10px;
-    min-height: 18px;
-}
-
-/* CATEGORY FOLDERS */
-
-.category {
-    margin-bottom: 22px;
-    border-radius: 15px;
-    background: #11111c;
-    overflow: hidden;
-    transition: box-shadow .3s ease;
-}
-
-.category[hidden] {
-    display: none !important;
-}
-
-.category-button {
-    width: 100%;
-    min-height: 70px;
-    padding: 20px;
-    background: #11111c;
-    border: 1px solid transparent;
-    border-radius: 15px;
-    color: white;
-    font-size: 21px;
-    font-weight: bold;
-    text-align: left;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    transition: all .3s ease;
-    -webkit-tap-highlight-color: transparent;
-}
-
-.category-button:active {
-    transform: scale(.985);
-}
-
-.arrow {
-    font-size: 17px;
-    transition: transform .3s ease;
-}
-
-/* MOVIE NEON */
-
-.movie .category-button {
-    border-color: #ff5722;
-    color: #ff784e;
-}
-
-.movie .category-button:hover,
-.movie.open .category-button,
-.movie .category-button:focus-visible {
-    background: #25130f;
-    border-color: #ff5722;
-    box-shadow:
-        0 0 7px #ff5722,
-        0 0 16px #ff5722,
-        inset 0 0 10px #ff572233;
-    text-shadow: 0 0 10px #ff5722;
-}
-
-.movie.open {
-    box-shadow: 0 0 8px #ff5722, 0 0 20px #ff572277;
-}
-
-/* ANIME NEON */
-
-.anime .category-button {
-    border-color: #c84cff;
-    color: #d77bff;
-}
-
-.anime .category-button:hover,
-.anime.open .category-button,
-.anime .category-button:focus-visible {
-    background: #20102d;
-    border-color: #d64dff;
-    box-shadow:
-        0 0 7px #d64dff,
-        0 0 16px #d64dff,
-        inset 0 0 10px #d64dff33;
-    text-shadow: 0 0 10px #d64dff;
-}
-
-.anime.open {
-    box-shadow: 0 0 8px #d64dff, 0 0 20px #d64dff77;
-}
-
-/* ARROW */
-
-.category.open .arrow {
-    transform: rotate(180deg);
-}
-
-/* FOLDER CONTENT */
-
-.category-content {
-    display: none;
-    padding: 17px;
-    background: #10101a;
-    border: 1px solid #29293b;
-    border-top: none;
-}
-
-.category.open .category-content {
-    display: block;
-}
-
-/* WEBSITE LINKS */
-
-.link-item {
-    --link-hue: 200;
-
-    display: block;
-    padding: 15px;
-    margin-bottom: 11px;
-    border-radius: 9px;
-    background: #1b1b2a;
-    color: white;
-    font-size: 15px;
-    overflow-wrap: anywhere;
-    border: 1px solid transparent;
-
-    transition:
-        color .3s ease,
-        background .3s ease,
-        box-shadow .3s ease,
-        border-color .3s ease,
-        transform .3s ease;
-}
-
-.link-item:last-child {
-    margin-bottom: 0;
-}
-
-.link-item[hidden] {
-    display: none !important;
-}
-
-.movie .link-item:hover {
-    color: #ff895c;
-    background: #392016;
-    box-shadow: 0 0 10px #ff572255;
-}
-
-.anime .link-item:hover {
-    color: #e1a2ff;
-    background: #2d1740;
-    box-shadow: 0 0 10px #c84cff55;
-}
-
-/* UNIQUE CLICK GLOW */
-
-.category .link-item.selected-link,
-.category .link-item.selected-link:hover,
-.category .link-item.selected-link:focus {
-    color: hsl(var(--link-hue), 100%, 90%) !important;
-
-    background: hsl(var(--link-hue), 65%, 16%) !important;
-
-    border: 1px solid
-        hsl(var(--link-hue), 100%, 65%) !important;
-
-    box-shadow:
-        0 0 8px hsl(var(--link-hue), 100%, 60%),
-        0 0 18px hsl(var(--link-hue), 100%, 55%),
-        0 0 35px hsl(var(--link-hue), 100%, 45%),
-        inset 0 0 12px hsl(var(--link-hue), 100%, 35%) !important;
-
-    text-shadow:
-        0 0 10px hsl(var(--link-hue), 100%, 80%) !important;
-
-    animation: uniqueGlow .8s ease-in-out;
-}
-
-@keyframes uniqueGlow {
-    0% {
-        transform: scale(.97);
-        filter: brightness(1.5);
-    }
-
-    50% {
-        transform: scale(1.025);
-        filter: brightness(1.7);
-    }
-
-    100% {
-        transform: scale(1);
-        filter: brightness(1);
-    }
-}
-
-.link-item:active {
-    transform: scale(.98);
-}
-
-/* MUSIC AND FEEDBACK */
-
-.side-features {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 18px;
-    margin: 35px 0;
-}
-
-.small-card {
-    background: #11111c;
-    border: 1px solid #29293b;
-    border-radius: 13px;
-    padding: 18px;
-}
-
-.small-card h3 {
-    margin-bottom: 13px;
-    font-size: 17px;
-}
-
-.music-card {
-    border-color: #00c9a7;
-}
-
-.feedback-card {
-    border-color: #ff55c8;
-}
-
-.music-card p {
-    color: #aaa;
-    font-size: 12px;
-    margin-bottom: 12px;
-}
-
-.music-controls button {
-    background: #00c9a7;
-    color: #071410;
-    border: none;
-    padding: 10px 19px;
-    border-radius: 20px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-/* FORMS */
-
-input,
-textarea,
-select {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 11px;
-    background: #1c1c2b;
-    border: 1px solid #39394c;
-    border-radius: 7px;
-    color: white;
-    font-family: inherit;
-    outline: none;
-    font-size: 14px;
-}
-
-input:focus,
-textarea:focus,
-select:focus {
-    border-color: #ff55c8;
-    box-shadow: 0 0 8px #ff55c855;
-}
-
-select option {
-    background: #1c1c2b;
-    color: white;
-}
-
-textarea {
-    min-height: 85px;
-    resize: vertical;
-}
-
-.submit-btn {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    border-radius: 7px;
-    background: #ff3ca6;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: .3s;
-}
-
-.submit-btn:hover {
-    box-shadow: 0 0 12px #ff3ca6;
-}
-
-.submit-btn:disabled {
-    opacity: .6;
-    cursor: not-allowed;
-}
-
-/* FORM STATUS */
-
-.form-status {
-    display: none;
-    padding: 12px;
-    margin-top: 13px;
-    border-radius: 8px;
-    font-size: 13px;
-    line-height: 1.5;
-}
-
-.form-status.success {
-    display: block;
-    color: #72ffd8;
-    background: #07352d;
-    border: 1px solid #00c9a7;
-}
-
-.form-status.error {
-    display: block;
-    color: #ff9999;
-    background: #3b1018;
-    border: 1px solid #ff5555;
-}
-
-/* SUGGEST WEBSITE */
-
-.suggest-section {
-    margin: 45px 0;
-    padding: 30px 20px;
-    border-radius: 16px;
-    background: linear-gradient(135deg, #19102a, #25102a);
-    border: 1px solid #b34cff;
-    box-shadow: 0 0 18px #a020f033;
-}
-
-.suggest-section h2 {
-    text-align: center;
-    color: #dc9aff;
-    font-size: 27px;
-    margin-bottom: 10px;
-}
-
-.suggest-section > p {
-    text-align: center;
-    color: #aaa;
-    font-size: 14px;
-    margin-bottom: 23px;
-}
-
-.suggest-form {
-    max-width: 600px;
-    margin: auto;
-}
-
-.suggest-form .submit-btn {
-    background: #a53bdf;
-}
-
-.suggest-form .submit-btn:hover {
-    box-shadow: 0 0 12px #a53bdf;
-}
-
-/* FOOTER */
-
-footer {
-    background: #11111c;
-    padding: 23px 10px;
-    text-align: center;
-    color: #888;
-    font-size: 12px;
-}
-
-footer span {
-    color: #ff55c8;
-}
-
-/* MOBILE RESPONSIVE */
-
-@media (max-width: 650px) {
-
-    .side-features {
-        grid-template-columns: 1fr;
-    }
-
-    .category-button {
-        font-size: 19px;
-    }
-
-    .top-bar {
-        padding: 15px;
-        gap: 14px;
-    }
-
-    .profile-logo {
-        width: 82px;
-        height: 82px;
-        min-width: 82px;
-    }
-
-    .social-content p {
-        font-size: 15px;
-    }
-
-    .social-links a {
-        font-size: 14px;
-    }
-
-    .warning-section {
-        padding: 19px;
-    }
-
-    .warning-heading h2 {
-        font-size: 18px;
-    }
-
-    .warning-section p {
-        font-size: 13px;
-    }
-}
-
-@media (max-width: 350px) {
-
-    .profile-logo {
-        width: 68px;
-        height: 68px;
-        min-width: 68px;
-    }
-
-    .social-content p {
-        font-size: 13px;
-    }
-
-    .social-links a {
-        font-size: 12px;
-    }
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#080810;color:#fff;font-family:Arial,sans-serif;min-height:100vh}
+a{color:inherit;text-decoration:none}
+.top-bar{width:94%;max-width:1100px;margin:25px auto 0;padding:18px 22px;background:linear-gradient(120deg,#171044,#21145c);border:1px solid #8b65ff;border-radius:22px;box-shadow:0 0 10px #874cff,0 0 25px #743cff88;display:flex;align-items:center;gap:20px}
+.profile-logo{width:105px;height:105px;min-width:105px;border-radius:50%;object-fit:cover;border:3px solid #ff55c8;box-shadow:0 0 10px #ff55c8,0 0 22px #a855ff}
+.social-content{display:flex;flex-direction:column;gap:12px}
+.social-content p{color:white;font-size:19px;font-weight:900;letter-spacing:1px}
+.social-links{display:flex;flex-direction:column;align-items:flex-start;gap:9px}
+.social-links a{color:#fff;font-size:17px;font-weight:bold;text-shadow:0 0 9px #c58cff;transition:.3s}
+.social-links a:hover{color:#ff8cfa;text-shadow:0 0 15px #ff55c8}
+.warning-section{width:92%;max-width:1000px;margin:35px auto 30px;padding:24px;background:linear-gradient(135deg,#24150d,#1b101c);border:1px solid #ff9d32;border-radius:16px;box-shadow:0 0 10px #ff8c3255,0 0 22px #ff8c3222}
+.warning-heading{display:flex;align-items:center;gap:12px;margin-bottom:17px}
+.warning-icon{font-size:30px}
+.warning-heading h2{color:#ffb44d;font-size:21px;font-weight:bold}
+.warning-section p{color:#ddd;font-size:14px;line-height:1.8;margin-bottom:13px}
+.warning-section p:last-child{margin-bottom:0}
+.warning-section strong{color:#ffbd69}
+.brave-note{margin-top:17px;padding:15px;background:#17251d;border:1px solid #37c979;border-radius:10px}
+.brave-note strong{color:#69f0a2}
+.brave-link{display:inline-block;margin-top:12px;padding:10px 18px;background:#27a957;color:white;border-radius:7px;font-weight:bold;font-size:13px;transition:.3s}
+.brave-link:hover{background:#38cf70;box-shadow:0 0 13px #27d66a}
+.container{width:92%;max-width:1000px;margin:auto}
+.subtitle{text-align:center;color:#aaa;font-size:14px;margin:0 0 22px}
+.search-section{max-width:850px;margin:0 auto 28px}
+.search-box{width:100%;padding:15px 18px;background:#151522;border:1px solid #8b65ff;border-radius:15px;color:white;font-size:15px;outline:none;transition:.3s}
+.search-box:focus{border-color:#ff55c8;box-shadow:0 0 15px #ff55c855}
+.search-box::placeholder{color:#aaa}
+.search-status{text-align:center;color:#aaa;font-size:12px;margin-top:10px;min-height:18px}
+.category{margin-bottom:22px;border-radius:15px;background:#11111c;overflow:hidden;transition:box-shadow .3s ease}
+.category[hidden]{display:none!important}
+.category-button{width:100%;min-height:70px;padding:20px;background:#11111c;border:1px solid transparent;border-radius:15px;color:white;font-size:21px;font-weight:bold;text-align:left;display:flex;justify-content:space-between;align-items:center;cursor:pointer;transition:all .35s ease;-webkit-tap-highlight-color:transparent}
+.category-button:active{transform:scale(.985)}
+.arrow{font-size:17px;transition:transform .3s ease}
+/* MOVIE: ORANGE */
+.movie .category-button{border-color:#ff5722;color:#ff784e}
+.movie .category-button:hover,.movie.open .category-button,.movie .category-button:focus-visible{background:#25130f;border-color:#ff5722;box-shadow:0 0 7px #ff5722,0 0 16px #ff5722,0 0 28px #ff572277,inset 0 0 10px #ff572233;text-shadow:0 0 10px #ff5722}
+.movie.open{box-shadow:0 0 8px #ff5722,0 0 20px #ff572277}
+/* ANIME: VIOLET */
+.anime .category-button{border-color:#c84cff;color:#d77bff}
+.anime .category-button:hover,.anime.open .category-button,.anime .category-button:focus-visible{background:#20102d;border-color:#d64dff;box-shadow:0 0 7px #d64dff,0 0 16px #d64dff,0 0 28px #d64dff77,inset 0 0 10px #d64dff33;text-shadow:0 0 10px #d64dff}
+.anime.open{box-shadow:0 0 8px #d64dff,0 0 20px #d64dff77}
+/* PC GAMES: CYAN / BLUE */
+.pc-games .category-button{border-color:#00e5ff;color:#43edff}
+.pc-games .category-button:hover,.pc-games.open .category-button,.pc-games .category-button:focus-visible{background:#09232c;border-color:#00e5ff;box-shadow:0 0 7px #00e5ff,0 0 16px #00e5ff,0 0 30px #00e5ff77,inset 0 0 10px #00e5ff33;text-shadow:0 0 10px #00e5ff}
+.pc-games.open{box-shadow:0 0 8px #00e5ff,0 0 20px #00e5ff77}
+.category.open .arrow{transform:rotate(180deg)}
+.category-content{display:none;padding:17px;background:#10101a;border:1px solid #29293b;border-top:none}
+.category.open .category-content{display:block}
+.link-item{--link-hue:200;display:block;padding:15px;margin-bottom:11px;border-radius:9px;background:#1b1b2a;color:white;font-size:15px;overflow-wrap:anywhere;border:1px solid transparent;transition:color .3s ease,background .3s ease,box-shadow .3s ease,border-color .3s ease,transform .3s ease}
+.link-item:last-child{margin-bottom:0}
+.link-item[hidden]{display:none!important}
+.movie .link-item:hover{color:#ff895c;background:#392016;box-shadow:0 0 10px #ff572255}
+.anime .link-item:hover{color:#e1a2ff;background:#2d1740;box-shadow:0 0 10px #c84cff55}
+.pc-games .link-item:hover{color:#43edff;background:#10303a;box-shadow:0 0 12px #00e5ff66}
+.category .link-item.selected-link,.category .link-item.selected-link:hover,.category .link-item.selected-link:focus{color:hsl(var(--link-hue),100%,90%)!important;background:hsl(var(--link-hue),65%,16%)!important;border:1px solid hsl(var(--link-hue),100%,65%)!important;box-shadow:0 0 8px hsl(var(--link-hue),100%,60%),0 0 18px hsl(var(--link-hue),100%,55%),0 0 35px hsl(var(--link-hue),100%,45%),inset 0 0 12px hsl(var(--link-hue),100%,35%)!important;text-shadow:0 0 10px hsl(var(--link-hue),100%,80%)!important;animation:uniqueGlow .8s ease-in-out}
+@keyframes uniqueGlow{0%{transform:scale(.97);filter:brightness(1.5)}50%{transform:scale(1.025);filter:brightness(1.7)}100%{transform:scale(1);filter:brightness(1)}}
+.link-item:active{transform:scale(.98)}
+.side-features{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:35px 0}
+.small-card{background:#11111c;border:1px solid #29293b;border-radius:13px;padding:18px}
+.small-card h3{margin-bottom:13px;font-size:17px}
+.music-card{border-color:#00c9a7}
+.feedback-card{border-color:#ff55c8}
+.music-card p{color:#aaa;font-size:12px;margin-bottom:12px}
+.music-controls button{background:#00c9a7;color:#071410;border:none;padding:10px 19px;border-radius:20px;font-weight:bold;cursor:pointer}
+input,textarea,select{width:100%;padding:12px;margin-bottom:11px;background:#1c1c2b;border:1px solid #39394c;border-radius:7px;color:white;font-family:inherit;outline:none;font-size:14px}
+input:focus,textarea:focus,select:focus{border-color:#ff55c8;box-shadow:0 0 8px #ff55c855}
+select option{background:#1c1c2b;color:white}
+textarea{min-height:85px;resize:vertical}
+.submit-btn{width:100%;padding:12px;border:none;border-radius:7px;background:#ff3ca6;color:white;font-weight:bold;cursor:pointer;transition:.3s}
+.submit-btn:hover{box-shadow:0 0 12px #ff3ca6}
+.submit-btn:disabled{opacity:.6;cursor:not-allowed}
+.form-status{display:none;padding:12px;margin-top:13px;border-radius:8px;font-size:13px;line-height:1.5}
+.form-status.success{display:block;color:#72ffd8;background:#07352d;border:1px solid #00c9a7}
+.form-status.error{display:block;color:#ff9999;background:#3b1018;border:1px solid #ff5555}
+.suggest-section{margin:45px 0;padding:30px 20px;border-radius:16px;background:linear-gradient(135deg,#19102a,#25102a);border:1px solid #b34cff;box-shadow:0 0 18px #a020f033}
+.suggest-section h2{text-align:center;color:#dc9aff;font-size:27px;margin-bottom:10px}
+.suggest-section>p{text-align:center;color:#aaa;font-size:14px;margin-bottom:23px}
+.suggest-form{max-width:600px;margin:auto}
+.suggest-form .submit-btn{background:#a53bdf}
+.suggest-form .submit-btn:hover{box-shadow:0 0 12px #a53bdf}
+footer{background:#11111c;padding:23px 10px;text-align:center;color:#888;font-size:12px}
+footer span{color:#ff55c8}
+@media(max-width:650px){
+ .side-features{grid-template-columns:1fr}
+ .category-button{font-size:19px}
+ .top-bar{padding:15px;gap:14px}
+ .profile-logo{width:82px;height:82px;min-width:82px}
+ .social-content p{font-size:15px}
+ .social-links a{font-size:14px}
+ .warning-section{padding:19px}
+ .warning-heading h2{font-size:18px}
+ .warning-section p{font-size:13px}
+}
+@media(max-width:350px){
+ .profile-logo{width:68px;height:68px;min-width:68px}
+ .social-content p{font-size:13px}
+ .social-links a{font-size:12px}
 }
 </style>
 </head>
-
 <body>
 
 <!-- INSTAGRAM HEADER -->
-
 <div class="top-bar">
-
-    <img
-        class="profile-logo"
-        src="https://i.ibb.co/S4qMKRXw/58d90f6d7b162a40f227bfa93dbce145.jpg"
-        alt="RK MEDIA Logo"
-    >
-
+    <img class="profile-logo" src="https://i.ibb.co/S4qMKRXw/58d90f6d7b162a40f227bfa93dbce145.jpg" alt="RK MEDIA Logo">
     <div class="social-content">
-
         <p>WEBSITE CREATED BY</p>
-
         <div class="social-links">
-
-            <a href="https://instagram.com/rithwik_sharon_"
-               target="_blank"
-               rel="noopener noreferrer">
-                @rithwik_sharon_ ↗
-            </a>
-
-            <a href="https://instagram.com/rk___efxr"
-               target="_blank"
-               rel="noopener noreferrer">
-                @rk___efxr ↗
-            </a>
-
+            <a href="https://instagram.com/rithwik_sharon_" target="_blank" rel="noopener noreferrer">@rithwik_sharon_ ↗</a>
+            <a href="https://instagram.com/rk___efxr" target="_blank" rel="noopener noreferrer">@rk___efxr ↗</a>
         </div>
     </div>
-
 </div>
 
 <!-- WEBSITE SAFETY WARNING -->
-
 <section class="warning-section">
-
     <div class="warning-heading">
-
         <span class="warning-icon">⚠️</span>
-
         <h2>IMPORTANT SAFETY WARNING</h2>
-
     </div>
-
-    <p>
-        Some links available on this website may lead to
-        third-party platforms that are banned, restricted,
-        or illegal in certain countries. Please check your
-        local laws before accessing any external website.
-    </p>
-
-    <p>
-        While some content may be safe, users may encounter
-        <strong>intrusive advertisements, inappropriate pop-ups,
-        redirects, or links to mature video websites.</strong>
-        Be careful when browsing and avoid clicking suspicious
-        advertisements or downloading unknown files.
-    </p>
-
+    <p>Some links available on this website may lead to third-party platforms that are banned, restricted, or illegal in certain countries. Please check your local laws before accessing any external website.</p>
+    <p>While some content may be safe, users may encounter <strong>intrusive advertisements, inappropriate pop-ups, redirects, or links to mature video websites.</strong> Be careful when browsing and avoid clicking suspicious advertisements or downloading unknown files.</p>
     <div class="brave-note">
-
-        <p>
-            <strong>🛡️ Recommended Browser: Brave</strong>
-        </p>
-
-        <p>
-            We strongly recommend using the
-            <strong>Brave Browser</strong> with its built-in
-            Shields and ad-blocking features to help reduce
-            intrusive advertisements and unwanted trackers
-            while browsing.
-        </p>
-
-        <p>
-            Please remember that no browser or ad blocker
-            can guarantee complete protection. Never enter
-            personal information on suspicious websites or
-            download untrusted files.
-        </p>
-
-        <a class="brave-link"
-           href="https://brave.com/"
-           target="_blank"
-           rel="noopener noreferrer">
-            Visit Brave Website ↗
-        </a>
-
+        <p><strong>🛡️ Recommended Browser: Brave</strong></p>
+        <p>We strongly recommend using the <strong>Brave Browser</strong> with its built-in Shields and ad-blocking features to help reduce intrusive advertisements and unwanted trackers while browsing.</p>
+        <p>Please remember that no browser or ad blocker can guarantee complete protection. Never enter personal information on suspicious websites or download untrusted files.</p>
+        <a class="brave-link" href="https://brave.com/" target="_blank" rel="noopener noreferrer">Visit Brave Website ↗</a>
     </div>
-
 </section>
 
 <main class="container">
-
-    <p class="subtitle">
-        Explore Movie & Anime Websites
-    </p>
+    <p class="subtitle">Explore Movie, Anime &amp; PC Games</p>
 
     <!-- SEARCH -->
-
     <section class="search-section">
-
-        <input
-            type="search"
-            id="websiteSearch"
-            class="search-box"
-            placeholder="🔍 Search Movie or Anime websites..."
-            autocomplete="off"
-            aria-label="Search Movie and Anime websites"
-        >
-
-        <p id="searchStatus"
-           class="search-status"
-           aria-live="polite">
-        </p>
-
+        <input type="search" id="websiteSearch" class="search-box" placeholder="🔍 Search Movie, Anime or PC Games..." autocomplete="off" aria-label="Search Movie, Anime and PC Games websites">
+        <p id="searchStatus" class="search-status" aria-live="polite"></p>
     </section>
 
     <!-- MOVIE FOLDER -->
-
     <section class="category movie" id="movieCategory">
-
-        <button
-            type="button"
-            class="category-button"
-            aria-expanded="false"
-            onclick="toggleCategory('movieCategory', this)">
-
-            <span>🎬 MOVIE</span>
-            <span class="arrow">▼</span>
-
+        <button type="button" class="category-button" aria-expanded="false" onclick="toggleCategory('movieCategory', this)">
+            <span>🎬 MOVIE</span><span class="arrow">▼</span>
         </button>
-
         <div class="category-content">
-
             <a class="link-item" href="https://www.movy.sx/" target="_blank" rel="noopener noreferrer">https://www.movy.sx/</a>
-
             <a class="link-item" href="https://cinejoy.pk/" target="_blank" rel="noopener noreferrer">https://cinejoy.pk/</a>
-
             <a class="link-item" href="https://popcornmovies.st/" target="_blank" rel="noopener noreferrer">https://popcornmovies.st/</a>
-
             <a class="link-item" href="https://7movies.ac/" target="_blank" rel="noopener noreferrer">https://7movies.ac/</a>
-
             <a class="link-item" href="https://flixer.gd/" target="_blank" rel="noopener noreferrer">https://flixer.gd/</a>
-
             <a class="link-item" href="https://redflix.one/" target="_blank" rel="noopener noreferrer">https://redflix.one/</a>
-
             <a class="link-item" href="https://cinema.army/" target="_blank" rel="noopener noreferrer">https://cinema.army/</a>
-
             <a class="link-item" href="https://greyboxtv.pages.dev/" target="_blank" rel="noopener noreferrer">https://greyboxtv.pages.dev/</a>
-
             <a class="link-item" href="https://cinemaos.live/" target="_blank" rel="noopener noreferrer">https://cinemaos.live/</a>
-
             <a class="link-item" href="https://4movie.in/" target="_blank" rel="noopener noreferrer">https://4movie.in/</a>
-
             <a class="link-item" href="https://willowmovies.com/" target="_blank" rel="noopener noreferrer">https://willowmovies.com/</a>
-
             <a class="link-item" href="https://web.nxsha.app/" target="_blank" rel="noopener noreferrer">https://web.nxsha.app/</a>
-
             <a class="link-item" href="https://cineruv.website/" target="_blank" rel="noopener noreferrer">https://cineruv.website/</a>
-
             <a class="link-item" href="https://3eyedraven.watch/" target="_blank" rel="noopener noreferrer">https://3eyedraven.watch/</a>
-
             <a class="link-item" href="https://watchly.mom/" target="_blank" rel="noopener noreferrer">https://watchly.mom/</a>
-
             <a class="link-item" href="https://smashystream.xyz/" target="_blank" rel="noopener noreferrer">https://smashystream.xyz/</a>
-
             <a class="link-item" href="https://netplayz.icu/" target="_blank" rel="noopener noreferrer">https://netplayz.icu/</a>
-
             <a class="link-item" href="https://framextv.cc/" target="_blank" rel="noopener noreferrer">https://framextv.cc/</a>
-
             <a class="link-item" href="https://allaboutmovies.pages.dev/" target="_blank" rel="noopener noreferrer">https://allaboutmovies.pages.dev/</a>
-
             <a class="link-item" href="https://bingebang.st/" target="_blank" rel="noopener noreferrer">https://bingebang.st/</a>
-
             <a class="link-item" href="https://watched.cx/home" target="_blank" rel="noopener noreferrer">https://watched.cx/home</a>
-
             <a class="link-item" href="https://nexa.mov/" target="_blank" rel="noopener noreferrer">https://nexa.mov/</a>
-
             <a class="link-item" href="https://movi47.site/home" target="_blank" rel="noopener noreferrer">https://movi47.site/home</a>
-
             <a class="link-item" href="https://cinehd.vc/home" target="_blank" rel="noopener noreferrer">https://cinehd.vc/home</a>
-
             <a class="link-item" href="https://dulo.mov/" target="_blank" rel="noopener noreferrer">https://dulo.mov/</a>
-
             <a class="link-item" href="https://flixeo.tv/" target="_blank" rel="noopener noreferrer">https://flixeo.tv/</a>
-
             <a class="link-item" href="https://vexo.surf/" target="_blank" rel="noopener noreferrer">https://vexo.surf/</a>
-
             <a class="link-item" href="https://2flix.lol/" target="_blank" rel="noopener noreferrer">https://2flix.lol/</a>
-
             <a class="link-item" href="https://cornclick.com/" target="_blank" rel="noopener noreferrer">https://cornclick.com/</a>
-
             <a class="link-item" href="https://azmovies.to/" target="_blank" rel="noopener noreferrer">https://azmovies.to/</a>
-
             <a class="link-item" href="https://tmovie.co/" target="_blank" rel="noopener noreferrer">https://tmovie.co/</a>
-
         </div>
     </section>
 
     <!-- ANIME FOLDER -->
-
     <section class="category anime" id="animeCategory">
-
-        <button
-            type="button"
-            class="category-button"
-            aria-expanded="false"
-            onclick="toggleCategory('animeCategory', this)">
-
-            <span>🎌 ANIME</span>
-            <span class="arrow">▼</span>
-
+        <button type="button" class="category-button" aria-expanded="false" onclick="toggleCategory('animeCategory', this)">
+            <span>🎌 ANIME</span><span class="arrow">▼</span>
         </button>
-
         <div class="category-content">
+            <a class="link-item" href="https://animesalt.cx/" target="_blank" rel="noopener noreferrer">https://animesalt.cx/</a>
+        </div>
+    </section>
 
-            <a class="link-item"
-               href="https://animesalt.cx/"
-               target="_blank"
-               rel="noopener noreferrer">
-                https://animesalt.cx/
-            </a>
-
+    <!-- PC GAMES FOLDER -->
+    <section class="category pc-games" id="pcGamesCategory">
+        <button type="button" class="category-button" aria-expanded="false" onclick="toggleCategory('pcGamesCategory', this)">
+            <span>🎮 PC GAMES</span><span class="arrow">▼</span>
+        </button>
+        <div class="category-content">
+            <a class="link-item" href="https://ankergames.net/" target="_blank" rel="noopener noreferrer">🎮 AnkerGames</a>
+            <a class="link-item" href="https://www.4fnet.org/" target="_blank" rel="noopener noreferrer">🎮 4FNet</a>
+            <a class="link-item" href="https://crotorrents.com/" target="_blank" rel="noopener noreferrer">🎮 CroTorrents</a>
+            <a class="link-item" href="https://fitgirl-repacks.site/popular-repacks-of-the-year/" target="_blank" rel="noopener noreferrer">🎮 FitGirl Repacks</a>
+            <a class="link-item" href="https://www.ovagames.com/" target="_blank" rel="noopener noreferrer">🎮 OvaGames</a>
+            <a class="link-item" href="https://steamora.net/" target="_blank" rel="noopener noreferrer">🎮 Steamora</a>
         </div>
     </section>
 
     <!-- MUSIC AND FEEDBACK -->
-
     <section class="side-features">
-
         <div class="small-card music-card">
-
             <h3>🎵 Music Player</h3>
-
-            <p id="musicStatus">
-                Music can be added later.
-            </p>
-
+            <p id="musicStatus">Music can be added later.</p>
             <div class="music-controls">
-
-                <button
-                    id="musicButton"
-                    type="button"
-                    onclick="toggleMusic()">
-                    ▶ Play
-                </button>
-
+                <button id="musicButton" type="button" onclick="toggleMusic()">▶ Play</button>
             </div>
-
             <audio id="backgroundMusic" loop></audio>
-
         </div>
 
         <!-- FEEDBACK FORM -->
-
         <div class="small-card feedback-card">
-
             <h3>💬 Feedback</h3>
-
-            <form
-                class="ajax-form"
-                action="https://formspree.io/f/mdeevero"
-                method="POST">
-
-                <input type="hidden"
-                       name="form_type"
-                       value="Website Feedback">
-
-                <input type="hidden"
-                       name="_subject"
-                       value="RK MEDIA - New Feedback">
-
+            <form class="ajax-form" action="https://formspree.io/f/mdeevero" method="POST">
+                <input type="hidden" name="form_type" value="Website Feedback">
+                <input type="hidden" name="_subject" value="RK MEDIA - New Feedback">
                 <select name="message_type" required>
-
-                    <option value="" disabled selected>
-                        Select Message Type
-                    </option>
-
+                    <option value="" disabled selected>Select Message Type</option>
                     <option value="Report a Problem">Report a Problem</option>
                     <option value="Website Suggestion">Website Suggestion</option>
                     <option value="General Feedback">General Feedback</option>
                     <option value="Other Message">Other Message</option>
-
                 </select>
-
-                <textarea
-                    name="message"
-                    placeholder="Write your message here..."
-                    required></textarea>
-
-                <button class="submit-btn" type="submit">
-                    Send Feedback
-                </button>
-
-                <div class="form-status"
-                     role="status"
-                     aria-live="polite"></div>
-
+                <textarea name="message" placeholder="Write your message here..." required></textarea>
+                <button class="submit-btn" type="submit">Send Feedback</button>
+                <div class="form-status" role="status" aria-live="polite"></div>
             </form>
-
         </div>
-
     </section>
 
     <!-- SUGGEST A WEBSITE -->
-
     <section class="suggest-section">
-
         <h2>🌐 Suggest a Website</h2>
-
-        <p>
-            Know a useful Movie or Anime website?
-            Share it with us!
-        </p>
-
-        <form
-            class="suggest-form ajax-form"
-            action="https://formspree.io/f/mdeevero"
-            method="POST">
-
-            <input type="hidden"
-                   name="form_type"
-                   value="Website Suggestion">
-
-            <input type="hidden"
-                   name="_subject"
-                   value="RK MEDIA - Website Suggestion">
-
-            <input type="text"
-                   name="website_name"
-                   placeholder="Website Name"
-                   required>
-
-            <input type="url"
-                   name="website_url"
-                   placeholder="Website URL (https://...)"
-                   required>
-
+        <p>Know a useful Movie, Anime or PC Games website? Share it with us!</p>
+        <form class="suggest-form ajax-form" action="https://formspree.io/f/mdeevero" method="POST">
+            <input type="hidden" name="form_type" value="Website Suggestion">
+            <input type="hidden" name="_subject" value="RK MEDIA - Website Suggestion">
+            <input type="text" name="website_name" placeholder="Website Name" required>
+            <input type="url" name="website_url" placeholder="Website URL (https://...)" required>
             <select name="category" required>
-
-                <option value="" disabled selected>
-                    Select Category
-                </option>
-
+                <option value="" disabled selected>Select Category</option>
                 <option value="Movie">Movie</option>
                 <option value="Anime">Anime</option>
+                <option value="PC Games">PC Games</option>
                 <option value="Other">Other</option>
-
             </select>
-
-            <textarea
-                name="suggestion"
-                placeholder="Tell us about this website..."
-                required></textarea>
-
-            <button class="submit-btn" type="submit">
-                Submit Website Suggestion
-            </button>
-
-            <div class="form-status"
-                 role="status"
-                 aria-live="polite"></div>
-
+            <textarea name="suggestion" placeholder="Tell us about this website..." required></textarea>
+            <button class="submit-btn" type="submit">Submit Website Suggestion</button>
+            <div class="form-status" role="status" aria-live="polite"></div>
         </form>
-
     </section>
-
 </main>
 
 <footer>
@@ -1032,357 +272,181 @@ footer span {
 </footer>
 
 <script>
-
 /* ONE FOLDER OPEN AT A TIME */
-
 function toggleCategory(categoryId, clickedButton) {
-
-    const categories =
-        document.querySelectorAll(".category");
-
-    const selected =
-        document.getElementById(categoryId);
-
-    const wasOpen =
-        selected.classList.contains("open");
+    const categories = document.querySelectorAll(".category");
+    const selected = document.getElementById(categoryId);
+    const wasOpen = selected.classList.contains("open");
 
     categories.forEach(category => {
-
         category.classList.remove("open");
-
-        category.querySelector(".category-button")
-            .setAttribute("aria-expanded", "false");
-
+        category.querySelector(".category-button").setAttribute("aria-expanded", "false");
     });
 
     if (!wasOpen) {
-
         selected.classList.add("open");
-
-        clickedButton.setAttribute(
-            "aria-expanded",
-            "true"
-        );
-
+        clickedButton.setAttribute("aria-expanded", "true");
     }
-
 }
 
 /* REAL-TIME SEARCH */
-
-const searchInput =
-    document.getElementById("websiteSearch");
-
-const searchStatus =
-    document.getElementById("searchStatus");
-
-const categories =
-    document.querySelectorAll(".category");
+const searchInput = document.getElementById("websiteSearch");
+const searchStatus = document.getElementById("searchStatus");
+const categories = document.querySelectorAll(".category");
 
 searchInput.addEventListener("input", function () {
-
     const query = this.value.trim().toLowerCase();
-
-    let matchedCategories = [];
+    const matchedCategories = [];
 
     categories.forEach(category => {
-
-        const button =
-            category.querySelector(".category-button");
-
-        const categoryName =
-            button.textContent.toLowerCase();
-
-        const links =
-            category.querySelectorAll(".link-item");
-
-        const categoryNameMatches =
-            query !== "" && categoryName.includes(query);
-
+        const button = category.querySelector(".category-button");
+        const categoryName = button.textContent.toLowerCase();
+        const links = category.querySelectorAll(".link-item");
+        const categoryNameMatches = query !== "" && categoryName.includes(query);
         let matches = 0;
 
         links.forEach(link => {
-
-            const linkText =
-                (link.textContent + " " + link.href).toLowerCase();
-
-            const linkMatches =
-                query === "" ||
-                categoryNameMatches ||
-                linkText.includes(query);
-
+            const linkText = (link.textContent + " " + link.href).toLowerCase();
+            const linkMatches = query === "" || categoryNameMatches || linkText.includes(query);
             link.hidden = !linkMatches;
-
-            if (linkMatches && query !== "") {
-                matches++;
-            }
-
+            if (linkMatches && query !== "") matches++;
         });
 
-        const categoryMatches =
-            query === "" || matches > 0;
-
+        const categoryMatches = query === "" || matches > 0;
         category.hidden = !categoryMatches;
 
         if (categoryMatches && query !== "") {
-            matchedCategories.push({
-                category: category,
-                count: matches
-            });
+            matchedCategories.push({ category, count: matches });
         }
-
     });
 
     if (query === "") {
-
         categories.forEach(category => {
-
             category.hidden = false;
             category.classList.remove("open");
-
-            category.querySelector(".category-button")
-                .setAttribute("aria-expanded", "false");
-
-            category.querySelectorAll(".link-item")
-                .forEach(link => link.hidden = false);
-
+            category.querySelector(".category-button").setAttribute("aria-expanded", "false");
+            category.querySelectorAll(".link-item").forEach(link => link.hidden = false);
         });
-
         searchStatus.textContent = "";
         return;
-
     }
 
-    /* OPEN ONLY THE CORRECT FOLDER */
-
     categories.forEach(category => {
-
         category.classList.remove("open");
-
-        category.querySelector(".category-button")
-            .setAttribute("aria-expanded", "false");
-
+        category.querySelector(".category-button").setAttribute("aria-expanded", "false");
     });
 
     if (matchedCategories.length === 1) {
-
         const result = matchedCategories[0];
-
         result.category.classList.add("open");
-
-        result.category.querySelector(".category-button")
-            .setAttribute("aria-expanded", "true");
-
-        searchStatus.textContent =
-            result.count + " matching website(s) found.";
-
+        result.category.querySelector(".category-button").setAttribute("aria-expanded", "true");
+        searchStatus.textContent = result.count + " matching website(s) found.";
     } else if (matchedCategories.length > 1) {
-
-        searchStatus.textContent =
-            "Matching websites found in multiple categories.";
-
+        searchStatus.textContent = "Matching websites found in multiple categories.";
     } else {
-
-        searchStatus.textContent =
-            "No Movie or Anime websites found.";
-
+        searchStatus.textContent = "No Movie, Anime or PC Games websites found.";
     }
-
 });
 
 /* UNIQUE NEON COLOR FOR EVERY LINK */
-
-const allWebsiteLinks =
-    document.querySelectorAll(".link-item");
-
+const allWebsiteLinks = document.querySelectorAll(".link-item");
 allWebsiteLinks.forEach((link, index) => {
-
     const hue = (index * 137.508 + 5) % 360;
-
-    link.style.setProperty(
-        "--link-hue",
-        hue.toFixed(2)
-    );
-
+    link.style.setProperty("--link-hue", hue.toFixed(2));
 });
 
 /* CLICK GLOW */
-
 document.addEventListener("click", function (event) {
-
-    const clickedLink =
-        event.target.closest(".link-item");
-
+    const clickedLink = event.target.closest(".link-item");
     if (!clickedLink) return;
 
-    allWebsiteLinks.forEach(link => {
-        link.classList.remove("selected-link");
-    });
-
+    allWebsiteLinks.forEach(link => link.classList.remove("selected-link"));
     clickedLink.classList.add("selected-link");
-
 });
 
 /* AJAX FORM SUBMISSION - FORMSPREE */
-
-const ajaxForms =
-    document.querySelectorAll(".ajax-form");
-
+const ajaxForms = document.querySelectorAll(".ajax-form");
 ajaxForms.forEach(form => {
-
     form.addEventListener("submit", async function (event) {
-
         event.preventDefault();
 
-        const submitButton =
-            form.querySelector('button[type="submit"]');
-
-        const statusBox =
-            form.querySelector(".form-status");
-
-        const originalButtonText =
-            submitButton.textContent;
+        const submitButton = form.querySelector('button[type="submit"]');
+        const statusBox = form.querySelector(".form-status");
+        const originalButtonText = submitButton.textContent;
 
         statusBox.className = "form-status";
         statusBox.textContent = "";
-
         submitButton.disabled = true;
         submitButton.textContent = "Sending...";
 
         try {
-
             const response = await fetch(form.action, {
-
                 method: "POST",
-
                 body: new FormData(form),
-
-                headers: {
-                    "Accept": "application/json"
-                }
-
+                headers: { "Accept": "application/json" }
             });
 
             if (response.ok) {
-
                 form.reset();
-
-                statusBox.className =
-                    "form-status success";
-
-                statusBox.textContent =
-                    "✓ Your message has been submitted successfully. Thank you!";
-
+                statusBox.className = "form-status success";
+                statusBox.textContent = "✓ Your message has been submitted successfully. Thank you!";
             } else {
-
-                let errorMessage =
-                    "Unable to send your message. Please try again.";
-
+                let errorMessage = "Unable to send your message. Please try again.";
                 try {
-
                     const result = await response.json();
-
                     if (result.errors && result.errors.length) {
-
-                        errorMessage =
-                            result.errors.map(error => error.message).join(" ");
-
+                        errorMessage = result.errors.map(error => error.message).join(" ");
                     }
-
                 } catch (jsonError) {
-                    // Default error message
+                    // Keep the default error message.
                 }
-
-                statusBox.className =
-                    "form-status error";
-
-                statusBox.textContent =
-                    "✕ " + errorMessage;
-
+                statusBox.className = "form-status error";
+                statusBox.textContent = "✕ " + errorMessage;
             }
-
         } catch (error) {
-
-            statusBox.className =
-                "form-status error";
-
-            statusBox.textContent =
-                "✕ Network error. Please check your internet connection and try again.";
-
+            statusBox.className = "form-status error";
+            statusBox.textContent = "✕ Network error. Please check your internet connection and try again.";
         } finally {
-
             submitButton.disabled = false;
             submitButton.textContent = originalButtonText;
-
         }
-
     });
-
 });
 
 /* OPTIONAL MUSIC PLAYER */
-
-const MUSIC_FILE = "";
-
-const music =
-    document.getElementById("backgroundMusic");
-
-const musicButton =
-    document.getElementById("musicButton");
-
-const musicStatus =
-    document.getElementById("musicStatus");
+const MUSIC_FILE = ""; // Add your MP3 file URL between the quotes to enable music.
+const music = document.getElementById("backgroundMusic");
+const musicButton = document.getElementById("musicButton");
+const musicStatus = document.getElementById("musicStatus");
 
 if (MUSIC_FILE) {
-
     music.src = MUSIC_FILE;
     musicStatus.textContent = "Music is ready.";
-
 }
 
 function toggleMusic() {
-
     if (!MUSIC_FILE) {
-
-        musicStatus.textContent =
-            "No music added yet. Add an MP3 file later.";
-
+        musicStatus.textContent = "No music added yet. Add an MP3 file later.";
         return;
-
     }
 
     if (music.paused) {
-
         music.play().then(() => {
-
             musicButton.textContent = "❚❚ Pause";
             musicStatus.textContent = "Now playing";
-
         }).catch(() => {
-
-            musicStatus.textContent =
-                "Unable to play music. Check the audio file.";
-
+            musicStatus.textContent = "Unable to play music. Check the audio file.";
         });
-
     } else {
-
         music.pause();
-
         musicButton.textContent = "▶ Play";
         musicStatus.textContent = "Music paused.";
-
     }
-
 }
 
 music.addEventListener("ended", () => {
-
     musicButton.textContent = "▶ Play";
-
 });
-
 </script>
-
 </body>
 </html>

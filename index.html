@@ -8,7 +8,7 @@
 <link rel="icon" type="image/jpeg" href="https://i.ibb.co/S4qMKRXw/58d90f6d7b162a40f227bfa93dbce145.jpg">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#080810;color:#fff;font-family:Arial,sans-serif;min-height:100vh}
+body{background:#080810;color:#fff;font-family:Arial,sans-serif;min-height:100vh;padding-bottom:88px}
 a{color:inherit;text-decoration:none}
 .top-bar{width:94%;max-width:1100px;margin:25px auto 0;padding:18px 22px;background:linear-gradient(120deg,#171044,#21145c);border:1px solid #8b65ff;border-radius:22px;box-shadow:0 0 10px #874cff,0 0 25px #743cff88;display:flex;align-items:center;gap:20px}
 .profile-logo{width:105px;height:105px;min-width:105px;border-radius:50%;object-fit:cover;border:3px solid #ff55c8;box-shadow:0 0 10px #ff55c8,0 0 22px #a855ff}
@@ -64,13 +64,46 @@ a{color:inherit;text-decoration:none}
 .category .link-item.selected-link,.category .link-item.selected-link:hover,.category .link-item.selected-link:focus{color:hsl(var(--link-hue),100%,90%)!important;background:hsl(var(--link-hue),65%,16%)!important;border:1px solid hsl(var(--link-hue),100%,65%)!important;box-shadow:0 0 8px hsl(var(--link-hue),100%,60%),0 0 18px hsl(var(--link-hue),100%,55%),0 0 35px hsl(var(--link-hue),100%,45%),inset 0 0 12px hsl(var(--link-hue),100%,35%)!important;text-shadow:0 0 10px hsl(var(--link-hue),100%,80%)!important;animation:uniqueGlow .8s ease-in-out}
 @keyframes uniqueGlow{0%{transform:scale(.97);filter:brightness(1.5)}50%{transform:scale(1.025);filter:brightness(1.7)}100%{transform:scale(1);filter:brightness(1)}}
 .link-item:active{transform:scale(.98)}
-.side-features{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:35px 0}
-.small-card{background:#11111c;border:1px solid #29293b;border-radius:13px;padding:18px}
-.small-card h3{margin-bottom:13px;font-size:17px}
-.music-card{border-color:#00c9a7}
-.feedback-card{border-color:#ff55c8}
-.music-card p{color:#aaa;font-size:12px;margin-bottom:12px}
-.music-controls button{background:#00c9a7;color:#071410;border:none;padding:10px 19px;border-radius:20px;font-weight:bold;cursor:pointer}
+/* FLOATING MUSIC + FEEDBACK PILL BUTTONS */
+.floating-actions{
+    position:fixed;left:18px;right:18px;bottom:18px;z-index:900;
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+    pointer-events:none
+}
+.float-action{
+    pointer-events:auto;min-height:50px;padding:0 23px;max-width:calc(50% - 6px);
+    border:1px solid #ffffff55;border-radius:999px;display:inline-flex;
+    align-items:center;justify-content:center;gap:9px;color:#fff;
+    font-size:13px;font-weight:800;letter-spacing:.55px;white-space:nowrap;
+    cursor:pointer;box-shadow:0 0 15px #0008;transition:transform .2s ease,box-shadow .2s ease;
+    -webkit-tap-highlight-color:transparent
+}
+.float-action:hover{transform:translateY(-3px);filter:brightness(1.12)}
+.float-action:focus-visible,.modal-close:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.music-launch{
+    background:linear-gradient(110deg,#00bfa6,#0878e8 60%,#7657ff);
+    box-shadow:0 0 16px #00cbb577,0 0 28px #397bff33,0 7px 22px #0009
+}
+.feedback-launch{
+    background:linear-gradient(110deg,#e83da8,#a43fe5 58%,#684cff);
+    box-shadow:0 0 16px #ff4db877,0 0 28px #a44dff33,0 7px 22px #0009
+}
+.music-launch[aria-pressed="true"]{border-color:#7affdf;box-shadow:0 0 18px #00e6c188,0 0 32px #397bff66}
+.modal-overlay{position:fixed;inset:0;z-index:1000;background:#05050bd9;backdrop-filter:blur(7px);display:none;align-items:center;justify-content:center;padding:18px}
+.modal-overlay.open{display:flex}
+.modal-dialog{position:relative;width:min(100%,440px);max-height:88vh;overflow-y:auto;background:linear-gradient(145deg,#171729,#10101b);border:1px solid #454562;border-radius:18px;padding:25px;box-shadow:0 18px 65px #000b;animation:modalPop .2s ease-out}
+.feedback-modal{border-color:#ff4db8;box-shadow:0 0 22px #ff4db833,0 18px 65px #000b}
+.modal-dialog h3{font-size:20px;margin:0 42px 15px 0;color:#ff82ce}
+.modal-close{position:absolute;right:14px;top:12px;width:35px;height:35px;border:1px solid #55556b;border-radius:50%;background:#25253a;color:#fff;font-size:21px;cursor:pointer}
+@keyframes modalPop{from{opacity:0;transform:translateY(10px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+@media(max-width:650px){
+    .floating-actions{left:10px;right:10px;bottom:12px;gap:8px}
+    .float-action{min-height:46px;padding:0 12px;font-size:10px;letter-spacing:.2px;gap:6px}
+}
+@media(max-width:360px){
+    .floating-actions{left:8px;right:8px;gap:6px}
+    .float-action{min-height:44px;padding:0 8px;font-size:9px;letter-spacing:0}
+}
 input,textarea,select{width:100%;padding:12px;margin-bottom:11px;background:#1c1c2b;border:1px solid #39394c;border-radius:7px;color:white;font-family:inherit;outline:none;font-size:14px}
 input:focus,textarea:focus,select:focus{border-color:#ff55c8;box-shadow:0 0 8px #ff55c855}
 select option{background:#1c1c2b;color:white}
@@ -87,10 +120,32 @@ textarea{min-height:85px;resize:vertical}
 .suggest-form{max-width:600px;margin:auto}
 .suggest-form .submit-btn{background:#a53bdf}
 .suggest-form .submit-btn:hover{box-shadow:0 0 12px #a53bdf}
+
+/* BEHIND THE SCENES: RK MEDIA announcement message */
+.message-panel{
+    min-height:150px;padding:25px;border:1px solid #3b7187;border-radius:14px;
+    background:radial-gradient(ellipse at 10% 0%,#1b536455,transparent 55%),
+               linear-gradient(135deg,#121e2c,#1b172b 75%);
+    box-shadow:inset 0 1px 0 #ffffff0d,0 0 22px #20c9d522;
+    display:block;text-align:left
+}
+.message-content{color:#c5d0df;font-size:14px;line-height:1.85;letter-spacing:.1px}
+.message-content p{margin:0 0 12px}
+.message-content p:last-child{margin-bottom:0}
+/* BEHIND THE SCENES: editorial update panel */
+.behind-scenes{margin:38px 0 44px;padding:26px;border:1px solid #3b6d82;border-radius:18px;background:radial-gradient(ellipse at 5% 0%,#16384a88,transparent 48%),linear-gradient(135deg,#111b2a,#171326 72%);box-shadow:0 12px 34px #0005,0 0 20px #20c9d522}
+.behind-header{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;margin-bottom:22px}
+.behind-eyebrow{display:block;color:#56d9e8;font-size:10px;font-weight:800;letter-spacing:2px;margin-bottom:8px}
+.behind-header h2{font-size:26px;color:#f1f4ff;margin-bottom:8px}
+.behind-header p{color:#aeb8ca;font-size:13px;line-height:1.6}
+
 footer{background:#11111c;padding:23px 10px;text-align:center;color:#888;font-size:12px}
 footer span{color:#ff55c8}
 @media(max-width:650px){
  .side-features{grid-template-columns:1fr}
+ .behind-scenes{padding:20px 16px;margin:30px 0}
+ .behind-header h2{font-size:22px}
+ .message-panel{min-height:135px;padding:20px 15px}
  .category-button{font-size:19px}
  .top-bar{padding:15px;gap:14px}
  .profile-logo{width:82px;height:82px;min-width:82px}
@@ -211,20 +266,41 @@ footer span{color:#ff55c8}
         </div>
     </section>
 
-    <!-- MUSIC AND FEEDBACK -->
-    <section class="side-features">
-        <div class="small-card music-card">
-            <h3>🎵 Music Player</h3>
-            <p id="musicStatus">Music can be added later.</p>
-            <div class="music-controls">
-                <button id="musicButton" type="button" onclick="toggleMusic()">▶ Play</button>
+    <!-- BEHIND THE SCENES: Add your own message when ready. -->
+    <section class="behind-scenes" id="behindTheScenes" aria-labelledby="behindScenesTitle">
+        <div class="behind-header">
+            <div>
+                <span class="behind-eyebrow">RK MEDIA • THE LATEST</span>
+                <h2 id="behindScenesTitle">A Message from RK MEDIA</h2>
+                <p>A dedicated space for updates and announcements from RK MEDIA.</p>
             </div>
-            <audio id="backgroundMusic" loop></audio>
         </div>
+        <div class="message-panel" aria-label="RK MEDIA message area">
+            <div class="message-content">
+                <p>This website will be updated regularly. It may take some time to add new links and features.</p>
+                <p>For a secure browsing experience, please use the Brave Browser, which blocks unwanted ads.</p>
+                <p>Please read the instructions at the top carefully.</p>
+                <p>Since there is no option to reply directly on the website, please share your feedback through the feedback section.</p>
+                <p>Updates will be made based on your suggestions.</p>
+            </div>
+        </div>
+    </section>
 
-        <!-- FEEDBACK FORM -->
-        <div class="small-card feedback-card">
-            <h3>💬 Feedback</h3>
+    <!-- FLOATING ACTION BUTTONS -->
+    <div class="floating-actions" aria-label="Quick actions">
+        <button class="float-action music-launch" id="musicToggle" type="button"
+                aria-label="Turn background music on" aria-pressed="false" onclick="toggleMusic()">♫ MUSIC OFF</button>
+        <button class="float-action feedback-launch" type="button"
+                aria-label="Open feedback form" aria-controls="feedbackModal" aria-expanded="false"
+                onclick="openModal('feedbackModal', this)">✉ SHARE YOUR THOUGHTS</button>
+    </div>
+    <audio id="backgroundMusic" loop preload="none"></audio>
+
+    <!-- FEEDBACK MODAL -->
+    <div class="modal-overlay" id="feedbackModal" role="dialog" aria-modal="true" aria-labelledby="feedbackModalTitle" onclick="backdropClose(event, 'feedbackModal')">
+        <div class="modal-dialog feedback-modal">
+            <button class="modal-close" type="button" aria-label="Close feedback form" onclick="closeModal('feedbackModal')">×</button>
+            <h3 id="feedbackModalTitle">💬 Send Feedback</h3>
             <form class="ajax-form" action="https://formspree.io/f/mdeevero" method="POST">
                 <input type="hidden" name="form_type" value="Website Feedback">
                 <input type="hidden" name="_subject" value="RK MEDIA - New Feedback">
@@ -240,7 +316,7 @@ footer span{color:#ff55c8}
                 <div class="form-status" role="status" aria-live="polite"></div>
             </form>
         </div>
-    </section>
+    </div>
 
     <!-- SUGGEST A WEBSITE -->
     <section class="suggest-section">
@@ -413,40 +489,74 @@ ajaxForms.forEach(form => {
     });
 });
 
-/* OPTIONAL MUSIC PLAYER */
-const MUSIC_FILE = ""; // Add your MP3 file URL between the quotes to enable music.
-const music = document.getElementById("backgroundMusic");
-const musicButton = document.getElementById("musicButton");
-const musicStatus = document.getElementById("musicStatus");
+/* FEEDBACK MODAL CONTROLS */
+let lastModalTrigger = null;
+function openModal(modalId, trigger) {
+    const modal = document.getElementById(modalId);
+    if (!modal) return;
+    document.querySelectorAll(".modal-overlay.open").forEach(item => item.classList.remove("open"));
+    lastModalTrigger = trigger || null;
+    modal.classList.add("open");
+    document.body.style.overflow = "hidden";
+    document.querySelectorAll(".feedback-launch").forEach(button =>
+        button.setAttribute("aria-expanded", button === trigger ? "true" : "false")
+    );
+    const closeButton = modal.querySelector(".modal-close");
+    if (closeButton) closeButton.focus();
+}
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (!modal) return;
+    modal.classList.remove("open");
+    document.body.style.overflow = "";
+    document.querySelectorAll(".feedback-launch").forEach(button => button.setAttribute("aria-expanded", "false"));
+    if (lastModalTrigger) lastModalTrigger.focus();
+}
+function backdropClose(event, modalId) {
+    if (event.target === event.currentTarget) closeModal(modalId);
+}
+document.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
+        const activeModal = document.querySelector(".modal-overlay.open");
+        if (activeModal) closeModal(activeModal.id);
+    }
+});
 
-if (MUSIC_FILE) {
-    music.src = MUSIC_FILE;
-    musicStatus.textContent = "Music is ready.";
+/* DIRECT BACKGROUND MUSIC ON/OFF CONTROL */
+const MUSIC_FILE = ""; // Add your MP3 file URL here to enable background music.
+const music = document.getElementById("backgroundMusic");
+const musicToggle = document.getElementById("musicToggle");
+
+if (MUSIC_FILE) music.src = MUSIC_FILE;
+
+function updateMusicButton(isPlaying) {
+    musicToggle.textContent = isPlaying ? "♫ MUSIC ON" : "♫ MUSIC OFF";
+    musicToggle.setAttribute("aria-pressed", String(isPlaying));
+    musicToggle.setAttribute("aria-label", isPlaying ? "Turn background music off" : "Turn background music on");
 }
 
-function toggleMusic() {
+async function toggleMusic() {
     if (!MUSIC_FILE) {
-        musicStatus.textContent = "No music added yet. Add an MP3 file later.";
+        musicToggle.title = "Add an MP3 URL to MUSIC_FILE in the script to enable background music.";
         return;
     }
-
     if (music.paused) {
-        music.play().then(() => {
-            musicButton.textContent = "❚❚ Pause";
-            musicStatus.textContent = "Now playing";
-        }).catch(() => {
-            musicStatus.textContent = "Unable to play music. Check the audio file.";
-        });
+        try {
+            await music.play();
+            updateMusicButton(true);
+        } catch (error) {
+            updateMusicButton(false);
+            musicToggle.title = "Unable to play music. Check the MP3 URL and browser audio permissions.";
+        }
     } else {
         music.pause();
-        musicButton.textContent = "▶ Play";
-        musicStatus.textContent = "Music paused.";
+        updateMusicButton(false);
     }
 }
 
-music.addEventListener("ended", () => {
-    musicButton.textContent = "▶ Play";
-});
+music.addEventListener("pause", () => updateMusicButton(false));
+music.addEventListener("play", () => updateMusicButton(true));
+music.addEventListener("ended", () => updateMusicButton(false));
 </script>
 </body>
 </html>

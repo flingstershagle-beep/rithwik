@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- RK MEDIA PROJECT VERSION: 1.0.0 | Previous: None | Update: INITIAL RELEASE -->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -48,6 +49,15 @@ a{color:inherit;text-decoration:none}
 .anime .category-button{border-color:#c84cff;color:#d77bff}
 .anime .category-button:hover,.anime.open .category-button,.anime .category-button:focus-visible{background:#20102d;border-color:#d64dff;box-shadow:0 0 7px #d64dff,0 0 16px #d64dff,0 0 28px #d64dff77,inset 0 0 10px #d64dff33;text-shadow:0 0 10px #d64dff}
 .anime.open{box-shadow:0 0 8px #d64dff,0 0 20px #d64dff77}
+
+/* ONLINE GAMES: GREEN / LIME */
+.online-games .category-button{border-color:#35e28b;color:#6cf5ad}
+.online-games .category-button:hover,.online-games.open .category-button,.online-games .category-button:focus-visible{background:#0d291d;border-color:#35e28b;box-shadow:0 0 7px #35e28b,0 0 16px #35e28b,0 0 30px #35e28b77,inset 0 0 10px #35e28b33;text-shadow:0 0 10px #35e28b}
+.online-games.open{box-shadow:0 0 8px #35e28b,0 0 20px #35e28b77}
+.online-games .link-item:hover{color:#80ffc0;background:#103323;box-shadow:0 0 12px #35e28b66}
+.version-badge{width:fit-content;margin:-12px auto 22px;padding:5px 11px;border:1px solid #8b65ff88;border-radius:999px;background:#171329;color:#c9a8ff;font-size:10px;font-weight:800;letter-spacing:1.2px}
+body.light-mode .version-badge{background:#fff;color:#6941a5;border-color:#b9a0e8}
+
 /* PC GAMES: CYAN / BLUE */
 .pc-games .category-button{border-color:#00e5ff;color:#43edff}
 .pc-games .category-button:hover,.pc-games.open .category-button,.pc-games .category-button:focus-visible{background:#09232c;border-color:#00e5ff;box-shadow:0 0 7px #00e5ff,0 0 16px #00e5ff,0 0 30px #00e5ff77,inset 0 0 10px #00e5ff33;text-shadow:0 0 10px #00e5ff}
@@ -285,11 +295,12 @@ body.light-mode .modal-close{background:#e6e6f0;color:#202235}
         </div>
     </section>
 
-    <p class="subtitle">Explore Movie, Anime &amp; PC Games</p>
+    <p class="subtitle">Explore Movie, Anime, PC Games &amp; Online Games</p>
+    <p class="version-badge" aria-label="Website version 1.0.0">VERSION 1.0.0</p>
 
     <!-- SEARCH -->
     <section class="search-section">
-        <input type="search" id="websiteSearch" class="search-box" placeholder="🔍 Search Movie, Anime or PC Games..." autocomplete="off" aria-label="Search Movie, Anime and PC Games websites">
+        <input type="search" id="websiteSearch" class="search-box" placeholder="🔍 Search Movie, Anime, PC Games or Online Games..." autocomplete="off" aria-label="Search Movie, Anime, PC Games and Online Games websites">
         <p id="searchStatus" class="search-status" aria-live="polite"></p>
     </section>
 
@@ -376,6 +387,33 @@ body.light-mode .modal-close{background:#e6e6f0;color:#202235}
         </div>
     </section>
 
+
+    <!-- ONLINE GAMES FOLDER -->
+    <section class="category online-games" id="onlineGamesCategory">
+        <button type="button" class="category-button" aria-expanded="false" onclick="toggleCategory('onlineGamesCategory', this)">
+            <span>🕹️ ONLINE GAMES</span><span class="arrow">▼</span>
+        </button>
+        <div class="category-content">
+            <a class="link-item" href="https://poki.com/" target="_blank" rel="noopener noreferrer">🎮 Poki</a>
+            <a class="link-item" href="https://www.crazygames.com/" target="_blank" rel="noopener noreferrer">🎮 CrazyGames</a>
+            <a class="link-item" href="https://playhop.com/" target="_blank" rel="noopener noreferrer">🎮 Playhop</a>
+            <a class="link-item" href="https://easy-games.io/" target="_blank" rel="noopener noreferrer">🎮 Easy Games</a>
+            <a class="link-item" href="https://freetopgames.io/" target="_blank" rel="noopener noreferrer">🎮 FreeTopGames</a>
+            <a class="link-item" href="https://www.gamesgames.com/" target="_blank" rel="noopener noreferrer">🎮 GamesGames</a>
+            <a class="link-item" href="https://www.y8.com/" target="_blank" rel="noopener noreferrer">🎮 Y8</a>
+            <a class="link-item" href="https://lagged.com/" target="_blank" rel="noopener noreferrer">🎮 Lagged</a>
+            <a class="link-item" href="https://www.addictinggames.com/" target="_blank" rel="noopener noreferrer">🎮 Addicting Games</a>
+            <a class="link-item" href="https://kizi.com/" target="_blank" rel="noopener noreferrer">🎮 Kizi</a>
+            <a class="link-item" href="https://www.gamepix.com/" target="_blank" rel="noopener noreferrer">🎮 GamePix</a>
+            <a class="link-item" href="https://jumpcade.com/" target="_blank" rel="noopener noreferrer">🎮 Jumpcade</a>
+            <a class="link-item" href="https://koiarcade.com/" target="_blank" rel="noopener noreferrer">🎮 Koi Arcade</a>
+            <a class="link-item" href="https://360playzone.com/" target="_blank" rel="noopener noreferrer">🎮 360Playzone</a>
+            <a class="link-item" href="https://gameziko.com/" target="_blank" rel="noopener noreferrer">🎮 GameZiko</a>
+            <a class="link-item" href="https://sonsaur.com/" target="_blank" rel="noopener noreferrer">🎮 Sonsaur</a>
+            <a class="link-item" href="https://www.kiwigames.io/" target="_blank" rel="noopener noreferrer">🎮 KiwiGames</a>
+        </div>
+    </section>
+
     <!-- BEHIND THE SCENES: Add your own message when ready. -->
     <section class="behind-scenes" id="behindTheScenes" aria-labelledby="behindScenesTitle">
         <div class="behind-header">
@@ -439,7 +477,7 @@ body.light-mode .modal-close{background:#e6e6f0;color:#202235}
     <!-- SUGGEST A WEBSITE -->
     <section class="suggest-section">
         <h2>🌐 Suggest a Website</h2>
-        <p>Know a useful Movie, Anime or PC Games website? Share it with us!</p>
+        <p>Know a useful Movie, Anime, PC Games or Online Games website? Share it with us!</p>
         <form class="suggest-form ajax-form" action="https://formspree.io/f/mdeevero" method="POST">
             <input type="hidden" name="form_type" value="Website Suggestion">
             <input type="hidden" name="_subject" value="RK MEDIA - Website Suggestion">
@@ -542,7 +580,7 @@ searchInput.addEventListener("input", function () {
     } else if (matchedCategories.length > 1) {
         searchStatus.textContent = "Matching websites found in multiple categories.";
     } else {
-        searchStatus.textContent = "No Movie, Anime or PC Games websites found.";
+        searchStatus.textContent = "No matching websites found.";
     }
 });
 
@@ -800,6 +838,7 @@ music.addEventListener("ended", () => updateMusicButton(false));
         if (category.classList.contains("movie")) return "Movie";
         if (category.classList.contains("anime")) return "Anime";
         if (category.classList.contains("pc-games")) return "PC Games";
+        if (category.classList.contains("online-games")) return "Online Games";
         return "Website";
     }
     function linkLabel(link){
@@ -849,7 +888,7 @@ music.addEventListener("ended", () => updateMusicButton(false));
         if(!favorites.length){
             const note=document.createElement("p");
             note.className="rk-extra-note";
-            note.textContent="Your saved favorites will appear here. Tap ☆ beside any Movie, Anime or PC Games link.";
+            note.textContent="Your saved favorites will appear here. Tap ☆ beside any Movie, Anime, PC Games or Online Games link.";
             favoritesList.appendChild(note);
             return;
         }

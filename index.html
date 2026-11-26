@@ -297,7 +297,7 @@ html.rk-intro-lock, html.rk-intro-lock body { overflow: hidden; }
 }
 /* R INTRO OVERLAY: plays on every load, then reveals the page */
 .rk-intro {
-    position: fixed; inset: 0; z-index: 2000;
+    position: fixed; inset: 0; z-index: 2147483647; isolation: isolate;
     display: flex; align-items: center; justify-content: center;
     background: #080810; overflow: hidden; cursor: pointer;
     opacity: 0; visibility: hidden; pointer-events: none;
@@ -1178,17 +1178,15 @@ music.addEventListener("ended", () => updateMusicButton(false));
     var zoomAt = 2.75; // measured onset of the supplied sound effect's fade-out
     var mark = document.getElementById('rkIntroMark');
 
-    // Desktop browsers pause near the end of the intro and wait for an
-    // explicit click. Touch/mobile behavior remains unchanged.
-    var desktopPause = window.matchMedia &&
+    // Desktop browsers require a separate explicit click after the intro
+    // animation completes. The page stays inert and covered until that click.
+    var desktopClickToReveal = window.matchMedia &&
         window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-    var waitingForDesktopClick = false;
-    var desktopPauseTimer = null;
+    var desktopIntroComplete = false;
 
     function finish() {
-        if (finished || waitingForDesktopClick) return;
+        if (finished) return;
         finished = true;
-        if (desktopPauseTimer) window.clearTimeout(desktopPauseTimer);
         introAudio.pause();
 
         // Reveal the website in this same completion task: no overlay fade,
@@ -1213,40 +1211,21 @@ music.addEventListener("ended", () => updateMusicButton(false));
         requestAnimationFrame(syncZoomToAudio);
     }
 
-    // The site is revealed on the exact final frame of the R emergence
-    // animation, rather than after an estimated timeout.
+    // Mobile reveals on the animation's final frame. Desktop deliberately
+    // keeps the opaque intro overlay in place until the user clicks it.
     if (mark) {
         mark.addEventListener('animationend', function (event) {
             if (event.target === mark && event.animationName === 'rkIntroEmerge') {
-                finish();
+                if (desktopClickToReveal) {
+                    desktopIntroComplete = true;
+                    intro.setAttribute('role', 'button');
+                    intro.setAttribute('tabindex', '0');
+                    intro.setAttribute('aria-label', 'Intro complete. Click to enter RK Media');
+                } else {
+                    finish();
+                }
             }
         });
-    }
-
-    function pauseIntroForDesktop() {
-        if (!desktopPause || finished || !started || waitingForDesktopClick) return;
-        waitingForDesktopClick = true;
-        introAudio.pause();
-        intro.classList.remove('rk-intro-playing');
-        intro.setAttribute('role', 'button');
-        intro.setAttribute('tabindex', '0');
-        intro.setAttribute('aria-label', 'Intro paused. Click to continue to RK Media');
-    }
-
-    function continueIntroOnDesktop() {
-        if (!waitingForDesktopClick || finished) return;
-        waitingForDesktopClick = false;
-        intro.removeAttribute('role');
-        intro.removeAttribute('tabindex');
-        intro.setAttribute('aria-label', 'RK Media intro');
-        intro.classList.add('rk-intro-playing');
-
-        var playPromise = introAudio.play();
-        if (playPromise && typeof playPromise.catch === 'function') {
-            playPromise.catch(function () {
-                // The visual animation can continue even if audio is blocked.
-            });
-        }
     }
 
     function startIntro() {
@@ -1260,12 +1239,6 @@ music.addEventListener("ended", () => updateMusicButton(false));
         var playPromise = introAudio.play();
         intro.classList.add('rk-intro-ready', 'rk-intro-playing');
         requestAnimationFrame(syncZoomToAudio);
-
-        // The R sequence is 4.2 seconds long. Pause at its readable hold
-        // (84%) on desktop; a click resumes the remaining fade/reveal.
-        if (desktopPause) {
-            desktopPauseTimer = window.setTimeout(pauseIntroForDesktop, 3528);
-        }
 
         if (playPromise && typeof playPromise.catch === 'function') {
             playPromise.catch(function () {
@@ -1299,21 +1272,24 @@ music.addEventListener("ended", () => updateMusicButton(false));
         });
     }
 
-    // On desktop, clicking the paused R overlay resumes the final part of
-    // the animation. Mobile keeps the original uninterrupted intro behavior.
-    if (desktopPause) {
-        intro.addEventListener('click', continueIntroOnDesktop);
+    // Desktop requires an explicit click after the R animation has finished.
+    // Clicks during the animation do not skip it; keyboard activation is also
+    // supported once the overlay becomes an accessible button.
+    if (desktopClickToReveal) {
+        function revealWebsiteOnDesktopClick() {
+            if (desktopIntroComplete) finish();
+        }
+        intro.addEventListener('click', revealWebsiteOnDesktopClick);
         intro.addEventListener('keydown', function (event) {
-            if (event.key === 'Enter' || event.key === ' ') {
+            if ((event.key === 'Enter' || event.key === ' ') && desktopIntroComplete) {
                 event.preventDefault();
-                continueIntroOnDesktop();
+                finish();
             }
         });
     }
 
-    // No click, key, or Escape shortcut can skip stage two. On desktop the
-    // click only resumes the paused sequence; the website still reveals on
-    // the animation's actual final frame.
+    // The main website remains hidden, aria-hidden, and inert until finish()
+    // is called by the required desktop click or the normal mobile completion.
     var audioHint = document.getElementById('rkIntroAudioHint');
     if (audioHint) audioHint.remove();
 })();

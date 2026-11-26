@@ -1178,9 +1178,17 @@ music.addEventListener("ended", () => updateMusicButton(false));
     var zoomAt = 2.75; // measured onset of the supplied sound effect's fade-out
     var mark = document.getElementById('rkIntroMark');
 
+    // Desktop browsers pause near the end of the intro and wait for an
+    // explicit click. Touch/mobile behavior remains unchanged.
+    var desktopPause = window.matchMedia &&
+        window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    var waitingForDesktopClick = false;
+    var desktopPauseTimer = null;
+
     function finish() {
-        if (finished) return;
+        if (finished || waitingForDesktopClick) return;
         finished = true;
+        if (desktopPauseTimer) window.clearTimeout(desktopPauseTimer);
         introAudio.pause();
 
         // Reveal the website in this same completion task: no overlay fade,
@@ -1215,6 +1223,32 @@ music.addEventListener("ended", () => updateMusicButton(false));
         });
     }
 
+    function pauseIntroForDesktop() {
+        if (!desktopPause || finished || !started || waitingForDesktopClick) return;
+        waitingForDesktopClick = true;
+        introAudio.pause();
+        intro.classList.remove('rk-intro-playing');
+        intro.setAttribute('role', 'button');
+        intro.setAttribute('tabindex', '0');
+        intro.setAttribute('aria-label', 'Intro paused. Click to continue to RK Media');
+    }
+
+    function continueIntroOnDesktop() {
+        if (!waitingForDesktopClick || finished) return;
+        waitingForDesktopClick = false;
+        intro.removeAttribute('role');
+        intro.removeAttribute('tabindex');
+        intro.setAttribute('aria-label', 'RK Media intro');
+        intro.classList.add('rk-intro-playing');
+
+        var playPromise = introAudio.play();
+        if (playPromise && typeof playPromise.catch === 'function') {
+            playPromise.catch(function () {
+                // The visual animation can continue even if audio is blocked.
+            });
+        }
+    }
+
     function startIntro() {
         if (finished || started) return;
         started = true;
@@ -1226,6 +1260,12 @@ music.addEventListener("ended", () => updateMusicButton(false));
         var playPromise = introAudio.play();
         intro.classList.add('rk-intro-ready', 'rk-intro-playing');
         requestAnimationFrame(syncZoomToAudio);
+
+        // The R sequence is 4.2 seconds long. Pause at its readable hold
+        // (84%) on desktop; a click resumes the remaining fade/reveal.
+        if (desktopPause) {
+            desktopPauseTimer = window.setTimeout(pauseIntroForDesktop, 3528);
+        }
 
         if (playPromise && typeof playPromise.catch === 'function') {
             playPromise.catch(function () {
@@ -1259,8 +1299,21 @@ music.addEventListener("ended", () => updateMusicButton(false));
         });
     }
 
-    // No click, key, or Escape shortcut can skip stage two. The sequence
-    // advances to the website only when the timed R intro completes.
+    // On desktop, clicking the paused R overlay resumes the final part of
+    // the animation. Mobile keeps the original uninterrupted intro behavior.
+    if (desktopPause) {
+        intro.addEventListener('click', continueIntroOnDesktop);
+        intro.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                continueIntroOnDesktop();
+            }
+        });
+    }
+
+    // No click, key, or Escape shortcut can skip stage two. On desktop the
+    // click only resumes the paused sequence; the website still reveals on
+    // the animation's actual final frame.
     var audioHint = document.getElementById('rkIntroAudioHint');
     if (audioHint) audioHint.remove();
 })();

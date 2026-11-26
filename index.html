@@ -1182,6 +1182,9 @@ music.addEventListener("ended", () => updateMusicButton(false));
     var TITLE_FADE_MS = reduceMotion ? 200 : 950; // matches the title's CSS fade
     var SEQUENCE_MS = 4200;                       // R emergence animation length
     var ZOOM_AT = 2.75;                           // seconds into the sound where the zoom begins
+    // true: reveal the website automatically when the intro sound finishes.
+    // false (default): the overlay holds until the visitor clicks.
+    var REVEAL_WHEN_SOUND_ENDS = false;
 
     var stage = 'title';
     var sequenceStart = 0;
@@ -1355,6 +1358,14 @@ music.addEventListener("ended", () => updateMusicButton(false));
         event.preventDefault();
         enterSite();
     }
+
+    // Fires when the intro sound finishes. Only acts when REVEAL_WHEN_SOUND_ENDS is true.
+    function onSoundEnded() {
+        if (!REVEAL_WHEN_SOUND_ENDS) return;
+        if (stage === 'intro') showReady();
+        enterSite();
+    }
+    introAudio.addEventListener('ended', onSoundEnded);
 
     armGestures();
     intro.addEventListener('click', onIntroClick);

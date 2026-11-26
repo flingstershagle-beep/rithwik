@@ -1184,12 +1184,14 @@ music.addEventListener("ended", () => updateMusicButton(false));
         window.matchMedia('(hover: hover) and (pointer: fine)').matches;
     var waitingForDesktopClick = false;
     var desktopPauseTimer = null;
+    var completionTimer = null;
 
     function finish(force) {
         if (finished || (waitingForDesktopClick && !force)) return;
         finished = true;
         waitingForDesktopClick = false;
         if (desktopPauseTimer) window.clearTimeout(desktopPauseTimer);
+        if (completionTimer) window.clearTimeout(completionTimer);
         introAudio.pause();
 
         // Reveal the website in this same completion task: no overlay fade,
@@ -1251,6 +1253,11 @@ music.addEventListener("ended", () => updateMusicButton(false));
         intro.setAttribute('aria-label', 'RK Media intro');
         intro.classList.add('rk-intro-playing');
 
+        // Fallback in case a browser suppresses animationend (background-tab
+        // throttling, rendering interruption, or CSS animation edge cases).
+        if (completionTimer) window.clearTimeout(completionTimer);
+        completionTimer = window.setTimeout(function () { finish(true); }, 6000);
+
         var playPromise = introAudio.play();
         if (playPromise && typeof playPromise.catch === 'function') {
             playPromise.catch(function () {
@@ -1275,6 +1282,8 @@ music.addEventListener("ended", () => updateMusicButton(false));
         // (84%) on desktop; a click resumes the remaining fade/reveal.
         if (desktopPause) {
             desktopPauseTimer = window.setTimeout(pauseIntroForDesktop, 3528);
+        } else {
+            completionTimer = window.setTimeout(function () { finish(true); }, 8000);
         }
 
         if (playPromise && typeof playPromise.catch === 'function') {
@@ -1302,7 +1311,7 @@ music.addEventListener("ended", () => updateMusicButton(false));
     if (titleScreen) {
         titleScreen.addEventListener('click', revealRIntro);
         titleScreen.addEventListener('keydown', function (event) {
-            if (event.key === 'Enter' || event.key === ' ') {
+            if ((event.key === 'Enter' || event.key === ' ') && !event.repeat) {
                 event.preventDefault();
                 revealRIntro();
             }
@@ -1314,7 +1323,7 @@ music.addEventListener("ended", () => updateMusicButton(false));
     if (desktopPause) {
         intro.addEventListener('click', continueIntroOnDesktop);
         intro.addEventListener('keydown', function (event) {
-            if (event.key === 'Enter' || event.key === ' ') {
+            if ((event.key === 'Enter' || event.key === ' ') && !event.repeat) {
                 event.preventDefault();
                 continueIntroOnDesktop();
             }
